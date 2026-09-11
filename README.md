@@ -33,7 +33,6 @@ All personal details, employment records, academic degrees, certifications, and 
 - **Name**: ALEN DAVIS K
 - **Location**: Thrissur, Kerala
 - **Email**: alend6622@gmail.com
-- **Phone**: +91 9745775346
 - **Career Goal**: Linux System Engineer
 
 ---
