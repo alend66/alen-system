@@ -1,7 +1,8 @@
 # ALEN // SYSTEM — Personal Engineering Command Center & Portfolio
 
 An interactive, high-tech personal digital command center and portfolio website for **ALEN DAVIS K**, a Computer Science graduate specializing in Linux, system administration, networking, cybersecurity, troubleshooting, and IT infrastructure.
-lIVE SITE:[portifolio/](https://alen-system.vercel.app)
+
+LIVE SITE:[portifolio/](https://alen-system.vercel.app)
 
 ## Concept & Visual Identity
 
