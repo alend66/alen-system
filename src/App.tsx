@@ -16,7 +16,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
-  const [isBooting, setIsBooting] = useState<boolean>(true);
+  const [isBooting, setIsBooting] = useState<boolean>(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [isResumeModalOpen, setIsResumeModalOpen] = useState<boolean>(false);
 
@@ -64,6 +64,7 @@ export const App: React.FC = () => {
 
           <Terminal
             onOpenResume={() => setIsResumeModalOpen(true)}
+            onReboot={() => setIsBooting(true)}
           />
 
           <NetworkMap />

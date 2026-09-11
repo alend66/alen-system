@@ -14,6 +14,7 @@ import {
 
 interface TerminalProps {
   onOpenResume: () => void;
+  onReboot?: () => void;
 }
 
 interface CommandHistoryItem {
@@ -23,7 +24,7 @@ interface CommandHistoryItem {
   timestamp: string;
 }
 
-export const Terminal: React.FC<TerminalProps> = ({ onOpenResume }) => {
+export const Terminal: React.FC<TerminalProps> = ({ onOpenResume, onReboot }) => {
   const [inputVal, setInputVal] = useState('');
   const [history, setHistory] = useState<CommandHistoryItem[]>([]);
   const [commandLog, setCommandLog] = useState<string[]>([]);
@@ -116,6 +117,11 @@ export const Terminal: React.FC<TerminalProps> = ({ onOpenResume }) => {
 
     if (cleanCmd.toLowerCase() === 'resume') {
       onOpenResume();
+    }
+
+    if (cleanCmd.toLowerCase() === 'reboot' || cleanCmd.toLowerCase() === 'boot') {
+      onReboot?.();
+      return;
     }
 
     const outputNode = renderOutput(cleanCmd);
