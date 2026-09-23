@@ -3,8 +3,8 @@
 
 An immersive, retro-futuristic GTA Vice City-inspired portfolio and interactive command center for **ALEN DAVIS K**, a Computer Science graduate specializing in Linux systems engineering, defensive cybersecurity, network infrastructure, and diagnostic troubleshooting.
 
-🌐 **Live Deployment**: [https://alen-system.vercel.app](https://alen-system.vercel.app)  
-📂 **GitHub Repository**: [https://github.com/alend66/alen-system](https://github.com/alend66/alen-system)
+🌐 **Live Deployment**: [portifolio](https://alen-system.vercel.app)  
+📂 **GitHub Repository**: [github](https://github.com/alend66/alen-system)
 
 ---
 
