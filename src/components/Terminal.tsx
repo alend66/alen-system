@@ -34,7 +34,7 @@ export const Terminal: React.FC<TerminalProps> = ({ onOpenResume, onReboot }) =>
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Suggested commands for quick clicks
-  const quickCommands = ['help', 'about', 'skills', 'projects', 'experience', 'education', 'resume', 'contact', 'clear'];
+  const quickCommands = ['help', 'about', 'skills', 'projects', 'experience', 'education', 'resume', 'contact', 'linkedin', 'clear'];
 
   // Initialize with greeting & help command run
   useEffect(() => {
@@ -156,6 +156,7 @@ export const Terminal: React.FC<TerminalProps> = ({ onOpenResume, onReboot }) =>
               <div><span className="text-emerald-400 font-bold">education</span>   <span className="text-slate-500">→</span> Education</div>
               <div><span className="text-emerald-400 font-bold">resume</span>      <span className="text-slate-500">→</span> View resume</div>
               <div><span className="text-emerald-400 font-bold">contact</span>     <span className="text-slate-500">→</span> Contact Alen</div>
+              <div><span className="text-emerald-400 font-bold">linkedin</span>    <span className="text-slate-500">→</span> Open LinkedIn</div>
               <div><span className="text-emerald-400 font-bold">clear</span>       <span className="text-slate-500">→</span> Clear terminal</div>
             </div>
             <div className="pt-2 text-[11px] text-slate-500 border-t border-slate-800">
@@ -299,7 +300,27 @@ export const Terminal: React.FC<TerminalProps> = ({ onOpenResume, onReboot }) =>
               <div><span className="text-slate-500">Email:</span> <a href={`mailto:${PORTFOLIO_DATA.personal.email}`} className="text-cyan-300 hover:underline">{PORTFOLIO_DATA.personal.email}</a></div>
               <div><span className="text-slate-500">Phone:</span> <span className="text-emerald-400">{PORTFOLIO_DATA.personal.phone}</span></div>
               <div><span className="text-slate-500">Location:</span> <span className="text-slate-300">{PORTFOLIO_DATA.personal.location}</span></div>
+              <div><span className="text-slate-500">LinkedIn:</span> <a href={PORTFOLIO_DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">{PORTFOLIO_DATA.personal.linkedin}</a></div>
+              <div><span className="text-slate-500">GitHub:</span> <a href={PORTFOLIO_DATA.personal.github} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline">{PORTFOLIO_DATA.personal.github}</a></div>
             </div>
+          </div>
+        );
+
+      case 'linkedin':
+        window.open(PORTFOLIO_DATA.personal.linkedin, '_blank');
+        return (
+          <div className="space-y-1 text-xs font-mono text-cyan-300">
+            <div>Opening LinkedIn profile in a new window...</div>
+            <div><a href={PORTFOLIO_DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">{PORTFOLIO_DATA.personal.linkedin}</a></div>
+          </div>
+        );
+
+      case 'github':
+        window.open(PORTFOLIO_DATA.personal.github, '_blank');
+        return (
+          <div className="space-y-1 text-xs font-mono text-cyan-300">
+            <div>Opening GitHub profile in a new window...</div>
+            <div><a href={PORTFOLIO_DATA.personal.github} target="_blank" rel="noopener noreferrer" className="text-purple-400 underline">{PORTFOLIO_DATA.personal.github}</a></div>
           </div>
         );
 

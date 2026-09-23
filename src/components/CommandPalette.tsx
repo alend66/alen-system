@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA, ProjectIncident } from '../data/portfolioData';
 import { sound } from '../utils/sound';
 import { 
   Search, 
@@ -12,13 +12,20 @@ import {
   X, 
   CornerDownLeft,
   ArrowRight,
-  Shield
+  Shield,
+  Globe
 } from 'lucide-react';
 
 interface CommandPaletteProps {
   isOpen: boolean;
   onClose: () => void;
   onOpenResume: () => void;
+  onOpenTerminal?: () => void;
+  onOpenVault?: () => void;
+  onOpenTechStack?: () => void;
+  onOpenProjectDetail?: (project: ProjectIncident) => void;
+  onOpenTransmissionModal?: () => void;
+  onSelectScene?: (idx: number) => void;
 }
 
 interface SearchItem {
@@ -30,7 +37,17 @@ interface SearchItem {
   meta?: string;
 }
 
-export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onOpenResume }) => {
+export const CommandPalette: React.FC<CommandPaletteProps> = ({ 
+  isOpen, 
+  onClose, 
+  onOpenResume,
+  onOpenTerminal,
+  onOpenVault,
+  onOpenTechStack,
+  onOpenProjectDetail,
+  onOpenTransmissionModal,
+  onSelectScene
+}) => {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -52,8 +69,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'Python + Shell • MD5 Hashing',
       icon: <FileText className="w-4 h-4 text-emerald-400" />,
       action: () => {
-        window.location.hash = '#projects';
         onClose();
+        onSelectScene?.(1);
+        if (PORTFOLIO_DATA.projects[0]) {
+          onOpenProjectDetail?.(PORTFOLIO_DATA.projects[0]);
+        }
       }
     },
     {
@@ -63,8 +83,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'ESP32 + RFID • Microcontroller Access',
       icon: <Shield className="w-4 h-4 text-cyan-400" />,
       action: () => {
-        window.location.hash = '#projects';
         onClose();
+        onSelectScene?.(1);
+        if (PORTFOLIO_DATA.projects[1]) {
+          onOpenProjectDetail?.(PORTFOLIO_DATA.projects[1]);
+        }
       }
     },
     {
@@ -74,8 +97,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'Splunk + Linux • Universal Forwarder',
       icon: <Terminal className="w-4 h-4 text-amber-400" />,
       action: () => {
-        window.location.hash = '#projects';
         onClose();
+        onSelectScene?.(1);
+        if (PORTFOLIO_DATA.projects[2]) {
+          onOpenProjectDetail?.(PORTFOLIO_DATA.projects[2]);
+        }
       }
     },
 
@@ -87,8 +113,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'Execute live portfolio commands',
       icon: <Terminal className="w-4 h-4 text-emerald-400" />,
       action: () => {
-        window.location.hash = '#terminal';
         onClose();
+        onOpenTerminal?.();
       }
     },
     {
@@ -98,8 +124,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'Inspect 8 core engineering nodes',
       icon: <Cpu className="w-4 h-4 text-cyan-400" />,
       action: () => {
-        window.location.hash = '#network-map';
         onClose();
+        onSelectScene?.(2);
+        onOpenTechStack?.();
       }
     },
     {
@@ -109,19 +136,20 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'OBSERVE → IDENTIFY → ISOLATE → TEST → FIX → VERIFY',
       icon: <Terminal className="w-4 h-4 text-purple-400" />,
       action: () => {
-        window.location.hash = '#how-i-think';
         onClose();
+        onSelectScene?.(2);
       }
     },
     {
       id: 'nav-diag',
-      title: 'Live System Diagnostic Console',
+      title: 'Live System Diagnostic & Tech Stack',
       category: 'SYSTEM',
-      meta: 'Simulated candidate profile evaluation',
+      meta: 'Linux commands, system telemetry & toolchain',
       icon: <Cpu className="w-4 h-4 text-emerald-400" />,
       action: () => {
-        window.location.hash = '#diagnostics';
         onClose();
+        onSelectScene?.(2);
+        onOpenTechStack?.();
       }
     },
 
@@ -133,8 +161,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'CCTV, DVR/NVR, router config, IP subnets',
       icon: <Briefcase className="w-4 h-4 text-blue-400" />,
       action: () => {
-        window.location.hash = '#experience';
         onClose();
+        onSelectScene?.(3);
       }
     },
     {
@@ -144,8 +172,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'Cybercrime investigation, forensics evidence',
       icon: <Shield className="w-4 h-4 text-red-400" />,
       action: () => {
-        window.location.hash = '#experience';
         onClose();
+        onSelectScene?.(3);
       }
     },
 
@@ -157,8 +185,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'Computer Science degree foundation',
       icon: <GraduationCap className="w-4 h-4 text-cyan-400" />,
       action: () => {
-        window.location.hash = '#credentials';
         onClose();
+        onSelectScene?.(4);
+        onOpenVault?.();
       }
     },
     {
@@ -168,8 +197,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'Red Team Hackers Academy, June 2026',
       icon: <Shield className="w-4 h-4 text-emerald-400" />,
       action: () => {
-        window.location.hash = '#credentials';
         onClose();
+        onSelectScene?.(4);
+        onOpenVault?.();
       }
     },
 
@@ -192,7 +222,19 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       meta: 'alend6622@gmail.com • +91 9745775346',
       icon: <Mail className="w-4 h-4 text-emerald-400" />,
       action: () => {
-        window.location.hash = '#connect';
+        onClose();
+        onSelectScene?.(5);
+        onOpenTransmissionModal?.();
+      }
+    },
+    {
+      id: 'act-linkedin',
+      title: 'Open LinkedIn Profile // Alen Davis K',
+      category: 'CONTACT',
+      meta: 'linkedin.com/in/alen-davis-k-69394a3bb',
+      icon: <Globe className="w-4 h-4 text-blue-400" />,
+      action: () => {
+        window.open(PORTFOLIO_DATA.personal.linkedin, '_blank');
         onClose();
       }
     }

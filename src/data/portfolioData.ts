@@ -32,6 +32,7 @@ export interface NetworkNode {
 export interface ExperienceItem {
   role: string;
   organization: string;
+  period: string;
   type: string;
   dateBadge: string;
   details: string[];
@@ -59,6 +60,8 @@ export const PORTFOLIO_DATA = {
     location: 'Thrissur, Kerala',
     email: 'alend6622@gmail.com',
     phone: '+91 9745775346',
+    linkedin: 'https://www.linkedin.com/in/alen-davis-k-69394a3bb',
+    github: 'https://github.com/alend66',
     careerGoal: 'Linux System Engineer',
     professionalIdentity: 'Computer Science graduate interested in Linux systems, system administration, networking, IT infrastructure, troubleshooting and cybersecurity.',
     headlineQuote: 'Building reliable systems. Understanding how they break. Making them stronger.',
@@ -189,25 +192,11 @@ export const PORTFOLIO_DATA = {
 
   experience: [
     {
-      role: 'CCTV AND NETWORKING ADMINISTRATOR',
-      organization: 'DNS Solutions',
-      type: 'OPERATIONAL INFRASTRUCTURE',
-      dateBadge: 'ADMINISTRATOR ROLE',
-      highlight: 'Infrastructure deployment, surveillance telemetry, IP subnets, and real-time hardware diagnostics.',
-      details: [
-        'CCTV camera installation, cabling, calibration, and routine hardware maintenance',
-        'DVR and NVR systems deployment, storage management, and continuous recording integrity',
-        'Routers and networking devices configuration across client premises',
-        'Network troubleshooting, diagnosing connectivity drops, latency, and packet loss',
-        'IP configuration, subnet assignments, and gateway routing',
-        'System monitoring to guarantee 24/7 uptime for surveillance and network backbones'
-      ]
-    },
-    {
       role: 'CYBER SECURITY INTERN',
       organization: 'Police Cyber Cell',
+      period: '2023 — 2024',
       type: 'DEFENSIVE INVESTIGATIONS',
-      dateBadge: 'INVESTIGATIVE INTERNSHIP',
+      dateBadge: '2023 — 2024 // INTERNSHIP',
       highlight: 'Cybercrime investigation exposure, digital forensics chain-of-custody, and security documentation.',
       details: [
         'Direct cybercrime investigation exposure under seasoned cyber cell officers',
@@ -216,6 +205,22 @@ export const PORTFOLIO_DATA = {
         'Incident documentation and formal investigative reporting',
         'Cyber awareness and threat prevention education initiatives',
         'Hands-on cyber forensics methodologies and digital artifact examination'
+      ]
+    },
+    {
+      role: 'CCTV AND NETWORKING ADMINISTRATOR',
+      organization: 'DNS Solutions',
+      period: '2024 — PRESENT',
+      type: 'OPERATIONAL INFRASTRUCTURE',
+      dateBadge: '2024 — PRESENT // ADMINISTRATOR',
+      highlight: 'Infrastructure deployment, surveillance telemetry, IP subnets, and real-time hardware diagnostics.',
+      details: [
+        'CCTV camera installation, cabling, calibration, and routine hardware maintenance',
+        'DVR and NVR systems deployment, storage management, and continuous recording integrity',
+        'Routers and networking devices configuration across client premises',
+        'Network troubleshooting, diagnosing connectivity drops, latency, and packet loss',
+        'IP configuration, subnet assignments, and gateway routing',
+        'System monitoring to guarantee 24/7 uptime for surveillance and network backbones'
       ]
     }
   ] as ExperienceItem[],

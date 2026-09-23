@@ -29,6 +29,9 @@ export default {
       fontFamily: {
         mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'ui-monospace', 'monospace'],
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        gta: ['"Bebas Neue"', 'Impact', 'sans-serif'],
+        script: ['"Caveat"', 'cursive'],
+        display: ['"Permanent Marker"', 'cursive'],
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',

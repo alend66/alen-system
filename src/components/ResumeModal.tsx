@@ -11,7 +11,8 @@ import {
   Shield, 
   FileText, 
   CheckCircle2,
-  ExternalLink
+  ExternalLink,
+  Globe
 } from 'lucide-react';
 
 interface ResumeModalProps {
@@ -98,6 +99,17 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 <div className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 text-cyan-400 print:text-black" />
                   <span>{personal.phone}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Globe className="w-3.5 h-3.5 text-cyan-400 print:text-black" />
+                  <a 
+                    href={personal.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:underline text-cyan-300 print:text-gray-800"
+                  >
+                    linkedin.com/in/alen-davis-k-69394a3bb
+                  </a>
                 </div>
               </div>
             </div>
