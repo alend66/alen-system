@@ -1,54 +1,83 @@
-# ALEN // SYSTEM — Personal Engineering Command Center & Portfolio
+# ALEN // SYSTEM — GTA Vice City Edition 🌴🔫
+### Linux Systems Engineer & Cybersecurity Defense Command Center
 
-An interactive, high-tech personal digital command center and portfolio website for **ALEN DAVIS K**, a Computer Science graduate specializing in Linux, system administration, networking, cybersecurity, troubleshooting, and IT infrastructure.
+An immersive, retro-futuristic GTA Vice City-inspired portfolio and interactive command center for **ALEN DAVIS K**, a Computer Science graduate specializing in Linux systems engineering, defensive cybersecurity, network infrastructure, and diagnostic troubleshooting.
 
-LIVE SITE:[portifolio]()
-
-## Concept & Visual Identity
-
-The website behaves like a living operating system called **ALEN // SYSTEM**, providing recruiters and engineering leaders with an interactive command center rather than a standard static resume template:
-
-- **Opening Boot Sequence**: Terminal bootloader with Linux kernel diagnostics, module verification, and instant skip or access control.
-- **Cinematic Command Center Hero**: Live telemetry HUD displaying system status (`ONLINE`, `READY`, `STABLE`, `ACTIVE`, `03 PROJECTS`, `LEARNING`), career goal, and engineering motto.
-- **Interactive Unix Terminal (`$ alen@portfolio:~$`)**: Full command-line interface supporting `help`, `about`, `skills`, `projects`, `experience`, `education`, `resume`, `contact`, `clear`, `whoami`, `uname`, history browsing (Up/Down arrow keys), and tab auto-completion.
-- **Infrastructure Network Map**: Animated interactive node mesh connecting Linux, Networking, System Administration, Cybersecurity, SIEM, Python, Shell, and Infrastructure with live capability telemetry inspection.
-- **Projects as Incident Investigations**:
-  - *Project 01*: **File Integrity Checker** (Python + Shell, cryptographic MD5 hash verification, CLI workflows, secure password handling concepts).
-  - *Project 02*: **RFID Access Control System** (ESP32 + RFID microcontroller hardware authentication, access control logic).
-  - *Project 03*: **Splunk SIEM Log Monitoring System** (Interactive SOC dashboard simulating the log lifecycle: Windows Event ID 4625 -> Universal Forwarder -> Splunk Enterprise -> Detection Engine -> Brute-Force Alert).
-- **"How I Think" Root-Cause Troubleshooting Mindset**: Step-by-step visual pipeline (`OBSERVE` -> `IDENTIFY` -> `ISOLATE` -> `TEST` -> `FIX` -> `VERIFY`) communicating root-cause engineering philosophy.
-- **Live System Diagnostic Console**: Interactive simulated candidate evaluation benchmark testing candidate competency domains.
-- **Operational Experience Timeline**: Incident-style log for *CCTV & Networking Administrator* at **DNS Solutions** and *Cyber Security Intern* at **Police Cyber Cell**.
-- **System Foundation & Credentials Vault**: Bachelor of Science in Computer Science (**Sahrdaya CAS**) and Advanced Diploma in Cyber Defence (**Red Team Hackers Academy**), plus verified workshop & conference accreditations (**Trazada Workshop**, **Seasides Conference**).
-- **Categorized Technology Stack Matrix**: Interactive filterable toolchain matrix spanning Operating Systems, Linux & Scripting, Networking, Technical Support, Cybersecurity Tools, Cybersecurity, and Soft Skills.
-- **Developer Command Palette (`Ctrl + K` / `Cmd + K`)**: Quick fuzzy search tool to jump instantly between nodes, projects, and actions.
-- **High-Fidelity Resume Viewer**: In-app modal preview of Alen's authoritative resume with native browser print-to-PDF functionality.
-- **Establish Connection Protocol**: Terminal-themed connection endpoint with contact details, copy buttons, and message dispatcher.
-- **Synthesized Audio Engine**: Subtle Web Audio API tactile keyclicks and diagnostic beeps with persistent mute/unmute control.
+🌐 **Live Deployment**: [https://alen-system.vercel.app](https://alen-system.vercel.app)  
+📂 **GitHub Repository**: [https://github.com/alend66/alen-system](https://github.com/alend66/alen-system)
 
 ---
 
-## Authoritative Information Fidelity
+## 🎮 Concept & Visual Architecture
 
-All personal details, employment records, academic degrees, certifications, and technical proficiencies strictly reflect Alen Davis K's authoritative resume without exaggeration or fabricated metrics:
+**ALEN // SYSTEM** merges the vibrant 1980s neon aesthetic of Grand Theft Auto: Vice City with the precision of a high-tech Linux & Cybersecurity tactical HUD:
 
-- **Name**: ALEN DAVIS K
-- **Location**: Thrissur, Kerala
-- **Email**: alend6622@gmail.com
-- **Career Goal**: Linux System Engineer
+- **GTA Navigation & Mission HUD**:
+  - **Minimap Radar**: Rotating radar sweep with GPS navigation line, compass needle, and player blip.
+  - **Wanted Level Stars**: Interactive wanted stars with retro audio cues and bounty multipliers.
+  - **Live Clock & Defense Countdown**: Real-time 24-hour clock alongside live telemetry tracking.
+  - **Radio Station Audio Engine**: Built-in 80s synthwave / retrowave radio toggle and Web Audio API synthesized tactile sound effects.
+  - **Mission Pause Menu (`ESC` / Menu)**: Authentic GTA pause menu allowing instant scene selection, audio settings, and stats.
+
+- **6 Interactive Scenes (Missions)**:
+  1. **Scene 01 // Hero Dossier**: Tactical Vice City operative profile, status telemetry, wanted stars, and live career objective.
+  2. **Scene 02 // Projects (Incident Files)**: Carousel showcasing real-world engineering projects formatted as incident response cases:
+     - *Incident #01*: **File Integrity Checker** (Python + Shell script, MD5 cryptographic verification, filesystem baselines).
+     - *Incident #02*: **RFID Smart Access Control** (ESP32 microcontroller, cryptographic RFID tags, access control logic).
+     - *Incident #03*: **Splunk SIEM Threat Analysis** (Event ID 4625 brute-force detection, universal forwarder pipelines).
+  3. **Scene 03 // Security Arsenal**: 3-metric diagnostic breakdown, defensive methodology, and categorized technology stack matrix.
+  4. **Scene 04 // Experience Journey**: Correct chronological career timeline:
+     - **2023 — 2024**: Cyber Security Intern @ *Police Cyber Cell, Thrissur*
+     - **2024 — PRESENT**: CCTV Administrator / IT Technician @ *DNS Solutions*
+     - Academic Foundation: *Bachelor of Science in Computer Science* (Sahrdaya College of Advanced Studies).
+  5. **Scene 05 // Achievements & Accreditations**: Unlocked milestones including ADCD v3 (Advanced Diploma in Cyber Defence), Splunk SIEM Enterprise Security, Seasides Conference, and Trazada Workshop.
+  6. **Scene 06 // Comms & Contact**: Encrypted frequency telemetry, animated live audio equalizer waveform, copy-to-clipboard endpoints, and secure message transmission modal.
+
+- **Built-in Power Tools**:
+  - **Interactive Linux Terminal CLI (`~` / Terminal)**: Full terminal shell supporting commands like `help`, `about`, `skills`, `projects`, `experience`, `education`, `resume`, `contact`, `clear`, `whoami`, and `uname`.
+  - **Authoritative Resume Viewer**: In-app modal viewer for official CV with native browser print-to-PDF formatting.
+  - **Developer Command Palette (`Ctrl + K` / `Cmd + K`)**: Instant keyboard navigation and fuzzy search.
 
 ---
 
-## Quick Start & Development
+## 🛠️ Technology Stack
+
+- **Core Framework**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS + Custom GTA Glass & Retrowave Theme (`src/index.css`)
+- **Iconography**: Lucide React
+- **Audio Engine**: Native Web Audio API Synthesizer (Zero external audio assets required)
+- **Deployment**: Vercel CI/CD Pipeline
+
+---
+
+## 🚀 Local Development Setup
+
+### Prerequisites
+- Node.js (v18.0 or newer)
+- npm (v9.0 or newer)
+
+### Installation & Run
 
 ```bash
+# Clone the repository
+git clone https://github.com/alend66/alen-system.git
+
+# Enter project directory
+cd alen-system
+
 # Install dependencies
 npm install
 
-# Start local development server (with hot reload)
+# Start Vite development server
 npm run dev
+```
 
-# Build optimized production bundle
+Visit `http://localhost:3000` in your browser.
+
+### Production Build
+
+```bash
+# Compile TypeScript and generate optimized production bundle
 npm run build
 
 # Preview production build locally
@@ -57,7 +86,17 @@ npm run preview
 
 ---
 
-## Workspace Setup
+## 👤 Operative Details
 
-Recommended workspace folder:
-`C:\Users\NEW PC\.gemini\antigravity\scratch\alen-davis-portfolio`
+- **Operative**: ALEN DAVIS K
+- **Location**: Thrissur, Kerala, India
+- **Email**: [alend6622@gmail.com](mailto:alend6622@gmail.com)
+- **LinkedIn**: [linkedin.com/in/alen-davis-k-69394a3bb](https://www.linkedin.com/in/alen-davis-k-69394a3bb)
+- **GitHub**: [github.com/alend66](https://github.com/alend66)
+- **Target Role**: Linux System Engineer / Defensive Cybersecurity Analyst
+
+---
+
+## 📜 License
+
+Created with passion by Alen Davis K. Built Different. Stay Legendary.
