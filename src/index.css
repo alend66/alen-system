@@ -280,3 +280,67 @@
   -webkit-text-stroke: 1.5px rgba(241, 207, 134, 0.62);
   text-shadow: 0 0 24px rgba(241, 207, 134, 0.22);
 }
+
+/* ============================================================
+   BUILT BY THE COLLECTIVE — "100+ minds. One digital identity."
+   Light Theme (#FAFAF8, #151515, #777777, #E8E7E2)
+   ============================================================ */
+.font-geist {
+  font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-instrument {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-geist-mono {
+  font-family: 'Geist Mono', 'JetBrains Mono', monospace;
+}
+
+.collective-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #3478F6 0%,
+    #6E5BFF 22%,
+    #B04FE0 44%,
+    #E84CB8 66%,
+    #FF5A70 84%,
+    #FF963B 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.collective-arch-banner {
+  background:
+    linear-gradient(to right, rgba(52, 120, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(52, 120, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(110, 91, 255, 0.14) 0%, rgba(52, 120, 246, 0.08) 55%, rgba(250, 250, 248, 0.92) 100%);
+  background-size: 24px 24px, 24px 24px, 100% 100%;
+  border: 1px solid rgba(110, 91, 255, 0.22);
+}
+
+.data-block .fill {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(14px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.data-block[data-built="true"] .fill {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .data-block .fill {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
