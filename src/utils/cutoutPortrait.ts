@@ -115,3 +115,4 @@ export function createTransparentPortraitCutout(srcUrl: string): Promise<string>
     img.src = srcUrl;
   });
 }
+

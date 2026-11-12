@@ -1436,3 +1436,4 @@ export const CollectivePortfolio: React.FC<CollectivePortfolioProps> = ({
     </div>
   );
 };
+

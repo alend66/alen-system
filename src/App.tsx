@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CollectivePortfolio } from './components/CollectivePortfolio';
+import { AegisCyberPortfolio } from './components/AegisCyberPortfolio';
 import { CommandPalette } from './components/CommandPalette';
 import { ResumeModal } from './components/ResumeModal';
 
@@ -20,8 +20,11 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] text-[#151515] relative overflow-x-clip">
-      <CollectivePortfolio onOpenResume={() => setIsResumeModalOpen(true)} />
+    <div className="min-h-screen bg-[#050811] text-slate-100 relative overflow-x-clip">
+      <AegisCyberPortfolio
+        onOpenResume={() => setIsResumeModalOpen(true)}
+        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+      />
 
       {/* Modals & Overlays */}
       <CommandPalette
