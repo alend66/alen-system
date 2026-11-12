@@ -161,3 +161,122 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ============================================================
+   CINEMATIC SCROLL FILM PORTFOLIO STYLES (PDF 2 Specification)
+   ============================================================ */
+.font-cinzel-dec {
+  font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-manrope {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.film-gold-heading {
+  color: #fff3cf;
+  text-shadow:
+    0 2px 14px rgba(8, 10, 36, 0.92),
+    0 0 28px rgba(241, 207, 134, 0.52),
+    0 0 60px rgba(246, 182, 214, 0.28);
+}
+
+.film-gold-label {
+  color: #f1cf86;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 12px rgba(8, 10, 36, 0.95),
+    0 0 18px rgba(241, 207, 134, 0.45);
+}
+
+.film-body-text {
+  color: #fff8e8;
+  text-shadow:
+    0 2px 14px rgba(4, 6, 22, 0.96),
+    0 4px 28px rgba(4, 6, 22, 0.9);
+}
+
+/* Soft blurred radial shadow pool behind text (no boxes) */
+.film-shadow-pool {
+  position: relative;
+}
+.film-shadow-pool::before {
+  content: "";
+  position: absolute;
+  inset: -28px -36px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(6, 8, 28, 0.72) 0%,
+    rgba(8, 10, 36, 0.46) 48%,
+    rgba(8, 10, 36, 0) 76%
+  );
+  filter: blur(14px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Frosted-glass pill for credentials and contact links */
+.film-frosted-pill {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 243, 207, 0.12) 0%,
+    rgba(186, 148, 232, 0.10) 55%,
+    rgba(12, 16, 48, 0.48) 100%
+  );
+  backdrop-filter: blur(14px) saturate(1.45);
+  -webkit-backdrop-filter: blur(14px) saturate(1.45);
+  border: 1px solid rgba(241, 207, 134, 0.32);
+  box-shadow:
+    0 8px 28px rgba(4, 6, 22, 0.55),
+    inset 0 1px 0 rgba(255, 243, 207, 0.25);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.film-frosted-pill:hover {
+  border-color: rgba(241, 207, 134, 0.68);
+  background: linear-gradient(
+    135deg,
+    rgba(241, 207, 134, 0.22) 0%,
+    rgba(246, 182, 214, 0.16) 55%,
+    rgba(16, 20, 58, 0.62) 100%
+  );
+  box-shadow:
+    0 10px 34px rgba(241, 207, 134, 0.24),
+    inset 0 1px 0 rgba(255, 243, 207, 0.42);
+  transform: translateY(-2px);
+}
+
+/* Ultra-transparent frosted-glass card ONLY for the 3 Projects */
+.film-project-glass {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(192, 152, 245, 0.09) 45%,
+    rgba(14, 18, 54, 0.46) 100%
+  );
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  border: 1px solid rgba(241, 207, 134, 0.34);
+  box-shadow:
+    0 24px 60px rgba(4, 6, 22, 0.68),
+    0 0 40px rgba(241, 207, 134, 0.10),
+    inset 0 1px 1px rgba(255, 243, 207, 0.32),
+    inset 0 -1px 1px rgba(246, 182, 214, 0.16);
+}
+
+.film-outlined-numeral {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(241, 207, 134, 0.62);
+  text-shadow: 0 0 24px rgba(241, 207, 134, 0.22);
+}
