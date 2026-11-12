@@ -56,13 +56,13 @@ export const TechStack: React.FC = () => {
   };
 
   return (
-    <section id="stack" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-mono">
+    <section id="stack" className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-mono">
       
       {/* Section Header */}
-      <div className="text-center mb-12 space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs text-cyan-300">
-          <Cpu className="w-3.5 h-3.5 text-cyan-400" />
-          SYSTEM CAPABILITIES // TECHNOLOGY STACK
+      <div className="text-center mb-8 sm:mb-12 space-y-2">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs text-cyan-300">
+          <Cpu className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+          <span>SYSTEM CAPABILITIES // TECHNOLOGY STACK</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
           Technology Stack
@@ -73,9 +73,9 @@ export const TechStack: React.FC = () => {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-[#090d14]/90 border border-cyan-500/30 rounded-xl p-4 sm:p-5 shadow-xl backdrop-blur-md mb-8 space-y-4">
+      <div className="bg-[#090d14]/90 border border-cyan-500/30 rounded-xl p-4 sm:p-5 shadow-xl backdrop-blur-md mb-6 sm:mb-8 space-y-4">
         
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           {/* Quick Search */}
           <div className="relative w-full sm:w-72">
             <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -89,16 +89,16 @@ export const TechStack: React.FC = () => {
           </div>
 
           <div className="text-[11px] text-slate-400 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span>AUTHORITATIVE RESUME DATASET</span>
           </div>
         </div>
 
         {/* Category Pills */}
-        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 pt-3 border-t border-slate-800">
           <button
             onClick={() => handleFilterSelect('ALL')}
-            className={`px-3 py-1 rounded text-xs transition-all ${
+            className={`col-span-2 sm:col-span-1 px-3 py-1.5 sm:py-1 rounded text-[11px] sm:text-xs transition-all text-center ${
               selectedCategory === 'ALL'
                 ? 'bg-cyan-500 text-black font-bold shadow-sm shadow-cyan-500/40'
                 : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
@@ -111,7 +111,7 @@ export const TechStack: React.FC = () => {
             <button
               key={cat.category}
               onClick={() => handleFilterSelect(cat.category)}
-              className={`px-2.5 py-1 rounded text-xs transition-all ${
+              className={`px-2.5 py-1.5 sm:py-1 rounded text-[11px] sm:text-xs transition-all text-center truncate ${
                 selectedCategory === cat.category
                   ? 'bg-cyan-500 text-black font-bold shadow-sm shadow-cyan-500/40'
                   : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'

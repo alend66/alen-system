@@ -53,6 +53,170 @@ export interface EducationItem {
   focus: string;
 }
 
+export interface CityScene {
+  index: number;
+  code: string;
+  id: string;
+  title: string;
+  districtName: string;
+  subtitle: string;
+  visualAction: string;
+  roadMarking: string;
+  carZ: number;
+  cameraOffset: { x: number; y: number; z: number };
+  lookAtOffset: { x: number; y: number; z: number };
+  accentColor: string;
+  summary: string;
+  badges: string[];
+}
+
+export const CITY_SCENES: CityScene[] = [
+  {
+    index: 0,
+    code: '01',
+    id: 'city-reveal',
+    title: 'City Reveal',
+    districtName: 'ALEN CITY // AERIAL REVEAL',
+    subtitle: 'Linux System & Cybersecurity Metropolis',
+    visualAction: 'Aerial city establishing shot; slow camera descent over the cyber highway',
+    roadMarking: 'WELCOME TO ALEN CITY // KERNEL 6.8 READY',
+    carZ: 18,
+    cameraOffset: { x: 0, y: 26, z: 46 },
+    lookAtOffset: { x: 0, y: 4, z: -30 },
+    accentColor: '#00f0ff',
+    summary: 'Welcome to ALEN CITY — an interactive 3D cyber metropolis where the world is the interface. Drive through 9 story districts to explore Alen Davis K’s education, technical skills, engineering projects, verified credentials, and field experience.',
+    badges: ['ALEN CITY', 'THRISSUR, KERALA', 'LINUX SYSTEM ENGINEER', 'INTERACTIVE 3D WORLD']
+  },
+  {
+    index: 1,
+    code: '02',
+    id: 'character',
+    title: 'Character Reveal',
+    districtName: 'OPERATOR // ALEN DAVIS K',
+    subtitle: 'Beside the Hero Cyber-Cruiser',
+    visualAction: 'Main character stands beside the hero car before departure',
+    roadMarking: 'OPERATOR: ALEN DAVIS K // ROOT AUTH',
+    carZ: 0,
+    cameraOffset: { x: 6.5, y: 3.4, z: 9.5 },
+    lookAtOffset: { x: -1.2, y: 1.8, z: -1 },
+    accentColor: '#00ff9d',
+    summary: 'Computer Science graduate specializing in Linux systems, system administration, networking, IT infrastructure, troubleshooting, and cybersecurity. "Building reliable systems. Understanding how they break. Making them stronger."',
+    badges: ['ALEN DAVIS K', 'BSc COMPUTER SCIENCE', 'ADCD v3 CYBER DEFENCE', 'ROOT CAUSE MINDSET']
+  },
+  {
+    index: 2,
+    code: '03',
+    id: 'start-journey',
+    title: 'Start Journey',
+    districtName: 'IGNITION // DEPARTURE GATE',
+    subtitle: 'Headlights On • Telemetry Active • Explore My World',
+    visualAction: 'Ignition, character enters car, headlights turn on, car begins moving',
+    roadMarking: '>>> IGNITION // EXPLORE MY WORLD >>>',
+    carZ: -25,
+    cameraOffset: { x: 0, y: 4.5, z: -12 },
+    lookAtOffset: { x: 0, y: 1.5, z: -45 },
+    accentColor: '#38bdf8',
+    summary: 'Engine online and telemetry locked. Follow the illuminated boulevard ahead: OBSERVE → IDENTIFY → ISOLATE → TEST → FIX → VERIFY. Use Next Scene, Scroll, W/A/S/D, Arrow Keys, or Touch Pedals to drive through every district.',
+    badges: ['OBSERVE', 'IDENTIFY', 'ISOLATE', 'TEST', 'FIX', 'VERIFY']
+  },
+  {
+    index: 3,
+    code: '04',
+    id: 'education',
+    title: 'Education District',
+    districtName: 'EDUCATION CAMPUS // FOUNDATION',
+    subtitle: 'Sahrdaya CAS & Red Team Hackers Academy',
+    visualAction: 'Drive toward campus; stop at the illuminated university entrance',
+    roadMarking: '04 // EDUCATION CAMPUS • BSc CS & ADCD v3',
+    carZ: -70,
+    cameraOffset: { x: 0, y: 5.2, z: -54 },
+    lookAtOffset: { x: 0, y: 3.2, z: -82 },
+    accentColor: '#00f0ff',
+    summary: 'Academic Computer Science foundation at Sahrdaya College of Advanced Studies (Kodakara) paired with specialized offensive & defensive security training through the Advanced Diploma in Cyber Defence (ADCD v3) at Red Team Hackers Academy (Thrissur).',
+    badges: ['BSc Computer Science', 'Sahrdaya CAS, Kodakara', 'ADCD v3 Diploma', 'Red Team Hackers Academy']
+  },
+  {
+    index: 4,
+    code: '05',
+    id: 'skills',
+    title: 'Technology District',
+    districtName: 'TECH TOWERS // SKILL MATRIX',
+    subtitle: 'Linux, Networking, Scripting & Cybersecurity Tooling',
+    visualAction: 'Drive past tech towers and illuminated skill signage on the road and facades',
+    roadMarking: '05 // LINUX • BASH • TCP/IP • SPLUNK • VAPT',
+    carZ: -125,
+    cameraOffset: { x: 0, y: 5.8, z: -108 },
+    lookAtOffset: { x: 0, y: 4.0, z: -138 },
+    accentColor: '#00ff9d',
+    summary: 'High-rise telemetry towers display verified technical capabilities across Operating Systems (Linux, Ubuntu, CentOS, Windows), Bash CLI & File Permissions, Networking (Routers, Switches, IP Subnetting), and Security Toolkits (Splunk, Wireshark, Burp Suite, Nmap, Metasploit, Nessus, Nikto, Hydra, Aircrack-ng).',
+    badges: ['Linux / Ubuntu / CentOS', 'Shell Scripting', 'Router & Switch Setup', 'Splunk SIEM', 'Wireshark & Nmap', 'VAPT & Burp Suite']
+  },
+  {
+    index: 5,
+    code: '06',
+    id: 'projects',
+    title: 'Projects Boulevard',
+    districtName: 'PROJECTS BOULEVARD // INCIDENTS',
+    subtitle: 'File Integrity Checker • RFID Access • Splunk SIEM',
+    visualAction: 'Drive along a boulevard of 3 engineering project landmarks',
+    roadMarking: '06 // PROJECTS BOULEVARD • 03 ACTIVE LANDMARKS',
+    carZ: -180,
+    cameraOffset: { x: 0, y: 5.5, z: -163 },
+    lookAtOffset: { x: 0, y: 3.5, z: -194 },
+    accentColor: '#f59e0b',
+    summary: 'Three landmark structures represent real engineering investigations: [01] File Integrity Checker (Python + Shell MD5 hashing), [02] RFID Access Control System (ESP32 microcontroller + RFID hardware), and [03] Splunk SIEM Log Monitoring System (Linux + Universal Forwarder + Brute-force alerting).',
+    badges: ['01: File Integrity Checker', '02: RFID Access Control', '03: Splunk SIEM Monitoring', 'Python • ESP32 • Splunk']
+  },
+  {
+    index: 6,
+    code: '07',
+    id: 'achievements',
+    title: 'Achievements Plaza',
+    districtName: 'ACHIEVEMENTS PLAZA // VAULT',
+    subtitle: 'Diplomas, Forensic Workshops & Security Conferences',
+    visualAction: 'Enter plaza with illuminated trophy monoliths and holo-screens',
+    roadMarking: '07 // ACHIEVEMENTS PLAZA • VERIFIED CREDENTIALS',
+    carZ: -235,
+    cameraOffset: { x: 0, y: 5.4, z: -218 },
+    lookAtOffset: { x: 0, y: 3.5, z: -248 },
+    accentColor: '#10b981',
+    summary: 'Illuminated trophy structures celebrate verified milestones: Advanced Diploma in Cyber Defence (ADCD v3) at Red Team Hacker Academy (June 2026), Cyber Forensic Workshop "Trazada: The Last Trace" at Offenso Hackers Academy (June 2026), and Seasides Conference at International Centre Goa (February 2026).',
+    badges: ['ADCD v3 (June 2026)', 'Trazada Forensic Workshop', 'Seasides Conference Goa', 'Verified Accreditations']
+  },
+  {
+    index: 7,
+    code: '08',
+    id: 'experience',
+    title: 'Experience District',
+    districtName: 'EXPERIENCE HQ // OPERATIONS',
+    subtitle: 'DNS Solutions & Police Cyber Cell',
+    visualAction: 'Pass operations & cyber investigation headquarters buildings',
+    roadMarking: '08 // EXPERIENCE DISTRICT • INFRASTRUCTURE & FORENSICS',
+    carZ: -290,
+    cameraOffset: { x: 0, y: 5.4, z: -273 },
+    lookAtOffset: { x: 0, y: 3.5, z: -302 },
+    accentColor: '#38bdf8',
+    summary: 'Real-world operational track record across two key headquarters: CCTV & Networking Administrator at DNS Solutions (DVR/NVR deployment, router/switch setup, IP subnetting, network troubleshooting) and Cyber Security Intern at Police Cyber Cell (cybercrime investigation exposure, digital forensics chain of custody).',
+    badges: ['DNS Solutions (Admin)', 'Police Cyber Cell (Intern)', 'Network Troubleshooting', 'Digital Forensics']
+  },
+  {
+    index: 8,
+    code: '09',
+    id: 'contact',
+    title: 'Contact Garage',
+    districtName: 'CONTACT GARAGE // TERMINAL BAY',
+    subtitle: 'Direct Hire, Resume Download, GitHub & Dispatch',
+    visualAction: 'Arrive at the cyber garage destination with contact portals and resume bay',
+    roadMarking: '09 // CONTACT GARAGE • OPEN TO OPPORTUNITIES',
+    carZ: -345,
+    cameraOffset: { x: 0, y: 4.8, z: -328 },
+    lookAtOffset: { x: 0, y: 2.8, z: -358 },
+    accentColor: '#00ff9d',
+    summary: 'Destination reached! Connect directly with Alen Davis K for Linux System Engineer, System Administration, Network Engineering, or SOC/Cybersecurity opportunities. Inspect or download the full resume, open the Unix CLI terminal, or transmit a message.',
+    badges: ['alend6622@gmail.com', '+91 9745775346', 'Thrissur, Kerala', 'Open to Opportunities']
+  }
+];
+
 export const PORTFOLIO_DATA = {
   personal: {
     name: 'ALEN DAVIS K',
@@ -265,7 +429,7 @@ export const PORTFOLIO_DATA = {
       label: 'LINUX',
       category: 'Core OS',
       x: 50,
-      y: 22,
+      y: 13,
       details: {
         headline: 'Command-line Workflows & System Administration',
         points: [
@@ -282,8 +446,8 @@ export const PORTFOLIO_DATA = {
       id: 'networking',
       label: 'NETWORKING',
       category: 'Connectivity',
-      x: 22,
-      y: 38,
+      x: 24,
+      y: 32,
       details: {
         headline: 'IP Architecture & Network Device Engineering',
         points: [
@@ -299,8 +463,8 @@ export const PORTFOLIO_DATA = {
       id: 'sysadmin',
       label: 'SYS ADMIN',
       category: 'Operations',
-      x: 78,
-      y: 38,
+      x: 76,
+      y: 32,
       details: {
         headline: 'System Maintenance & Operational Health',
         points: [
@@ -316,7 +480,7 @@ export const PORTFOLIO_DATA = {
       id: 'cybersecurity',
       label: 'CYBERSECURITY',
       category: 'Defense',
-      x: 22,
+      x: 24,
       y: 68,
       details: {
         headline: 'Offensive & Defensive Security Methodologies',
@@ -334,7 +498,7 @@ export const PORTFOLIO_DATA = {
       label: 'SIEM',
       category: 'Detection',
       x: 50,
-      y: 54,
+      y: 50,
       details: {
         headline: 'Splunk Log Ingestion & Threat Monitoring',
         points: [
@@ -350,8 +514,8 @@ export const PORTFOLIO_DATA = {
       id: 'python',
       label: 'PYTHON',
       category: 'Scripting',
-      x: 35,
-      y: 84,
+      x: 32,
+      y: 87,
       details: {
         headline: 'Security Automation & Integrity Verification',
         points: [
@@ -367,8 +531,8 @@ export const PORTFOLIO_DATA = {
       id: 'shell',
       label: 'SHELL',
       category: 'Automation',
-      x: 65,
-      y: 84,
+      x: 68,
+      y: 87,
       details: {
         headline: 'Bash Automation & CLI Tooling',
         points: [
@@ -384,7 +548,7 @@ export const PORTFOLIO_DATA = {
       id: 'infrastructure',
       label: 'INFRASTRUCTURE',
       category: 'Hardware & Edge',
-      x: 78,
+      x: 76,
       y: 68,
       details: {
         headline: 'Perimeter Hardware & Edge Systems',

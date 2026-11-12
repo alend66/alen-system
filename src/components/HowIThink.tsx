@@ -39,12 +39,12 @@ export const HowIThink: React.FC = () => {
   };
 
   return (
-    <section id="how-i-think" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="how-i-think" className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="text-center mb-12 space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs font-mono text-cyan-300">
-          <Workflow className="w-3.5 h-3.5 text-cyan-400" />
-          FEATURE 04 // ROOT CAUSE ARCHITECTURE
+      <div className="text-center mb-8 sm:mb-12 space-y-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300">
+          <Workflow className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+          <span>FEATURE 04 // ROOT CAUSE ARCHITECTURE</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-sans">
           HOW I THINK
@@ -55,24 +55,24 @@ export const HowIThink: React.FC = () => {
       </div>
 
       {/* Core Philosophy Banner */}
-      <div className="max-w-4xl mx-auto mb-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#0d121c] via-[#0f172a] to-[#0d121c] border border-cyan-500/30 shadow-2xl text-center relative overflow-hidden">
+      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 p-5 sm:p-8 rounded-2xl bg-gradient-to-r from-[#0d121c] via-[#0f172a] to-[#0d121c] border border-cyan-500/30 shadow-2xl text-center relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-3xl pointer-events-none" />
-        <div className="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
-          <Lightbulb className="w-4 h-4" /> CORE ENGINEERING PHILOSOPHY
+        <div className="text-cyan-400 font-mono text-[11px] sm:text-xs uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
+          <Lightbulb className="w-4 h-4 shrink-0" /> CORE ENGINEERING PHILOSOPHY
         </div>
-        <blockquote className="text-xl sm:text-3xl font-extrabold text-white font-sans leading-snug tracking-tight">
+        <blockquote className="text-lg sm:text-3xl font-extrabold text-white font-sans leading-snug tracking-tight">
           &ldquo;I enjoy understanding the <span className="text-cyan-400 underline decoration-cyan-500/40">root cause</span> of technical problems rather than simply treating the symptoms.&rdquo;
         </blockquote>
-        <p className="text-xs font-mono text-slate-400 mt-4">
+        <p className="text-[11px] sm:text-xs font-mono text-slate-400 mt-3 sm:mt-4">
           From Alen Davis K&apos;s Engineering Profile & Professional Summary
         </p>
       </div>
 
       {/* 6-Stage Troubleshooting Pipeline Visual */}
-      <div className="bg-[#090d14]/90 border border-cyan-500/30 rounded-xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+      <div className="bg-[#090d14]/90 border border-cyan-500/30 rounded-xl p-4 sm:p-8 shadow-2xl backdrop-blur-md">
         
         {/* Step Progression Ribbon */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3 mb-6 sm:mb-8">
           {steps.map((step, idx) => {
             const isCurrent = idx === activeStepIndex;
             return (
@@ -81,12 +81,12 @@ export const HowIThink: React.FC = () => {
                 onClick={() => handleSelectStep(idx)}
                 className={`p-3 rounded-lg border font-mono text-left transition-all relative ${
                   isCurrent
-                    ? 'bg-cyan-950/90 border-cyan-400 text-white shadow-lg shadow-cyan-500/20 scale-102 ring-1 ring-cyan-500/50'
+                    ? 'bg-cyan-950/90 border-cyan-400 text-white shadow-lg shadow-cyan-500/20 ring-1 ring-cyan-500/50'
                     : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
                 }`}
               >
                 <div className="flex items-center justify-between text-xs mb-1.5">
-                  <span className={`font-bold ${isCurrent ? 'text-cyan-300' : 'text-slate-500'}`}>
+                  <span className={`font-bold text-[11px] sm:text-xs ${isCurrent ? 'text-cyan-300' : 'text-slate-500'}`}>
                     STEP {step.step}
                   </span>
                   <span className={isCurrent ? 'text-cyan-400' : 'text-slate-500'}>
@@ -102,29 +102,29 @@ export const HowIThink: React.FC = () => {
         </div>
 
         {/* Detailed Breakdown of Active Step */}
-        <div className="p-6 rounded-xl bg-[#0e131d] border border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div className="p-4 sm:p-6 rounded-xl bg-[#0e131d] border border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-center">
           
           <div className="lg:col-span-8 space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="px-2.5 py-1 rounded bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <span className="px-2.5 py-1 rounded bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold shrink-0">
                 PHASE 0{activeStepIndex + 1}
               </span>
-              <h3 className="text-2xl font-extrabold text-white font-sans tracking-tight">
+              <h3 className="text-lg sm:text-2xl font-extrabold text-white font-sans tracking-tight">
                 {activeStep.title} // METHODOLOGY
               </h3>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+            <p className="text-xs sm:text-base text-slate-300 leading-relaxed font-sans">
               {activeStep.description}
             </p>
 
-            <div className="pt-2">
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-wider block mb-1">
+            <div className="pt-1 sm:pt-2">
+              <span className="text-[11px] sm:text-xs font-mono text-slate-500 uppercase tracking-wider block mb-1.5">
                 ILLUSTRATIVE TERMINAL COMMAND HOOK:
               </span>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/80 border border-slate-700 font-mono text-xs text-emerald-400">
-                <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                <span>$ {activeStep.command}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/80 border border-slate-700 font-mono text-xs text-emerald-400 max-w-full overflow-x-auto">
+                <Terminal className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span className="whitespace-nowrap">$ {activeStep.command}</span>
               </div>
             </div>
           </div>
@@ -135,15 +135,15 @@ export const HowIThink: React.FC = () => {
             </span>
             <ul className="space-y-1.5 text-slate-300">
               <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
                 <span>Zero superficial guesswork</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
                 <span>Repeatable deterministic proof</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
                 <span>Documented incident remediation</span>
               </li>
             </ul>

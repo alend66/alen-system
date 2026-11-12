@@ -41,12 +41,12 @@ export const NetworkMap: React.FC = () => {
   ];
 
   return (
-    <section id="network-map" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="network-map" className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="text-center mb-10 space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs font-mono text-cyan-300">
-          <Network className="w-3.5 h-3.5 text-cyan-400" />
-          FEATURE 02 // TOPOLOGY TELEMETRY
+      <div className="text-center mb-8 sm:mb-10 space-y-2">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300">
+          <Network className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+          <span>FEATURE 02 // TOPOLOGY TELEMETRY</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
           Infrastructure & Skill Map
@@ -56,24 +56,24 @@ export const NetworkMap: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-start">
         
         {/* Left / Main: Interactive Graph Visualizer */}
-        <div className="lg:col-span-8 bg-[#090d14]/90 border border-cyan-500/30 rounded-xl p-4 sm:p-6 shadow-2xl relative overflow-hidden backdrop-blur-md min-h-[460px] flex flex-col justify-between">
+        <div className="lg:col-span-8 min-w-0 bg-[#090d14]/90 border border-cyan-500/30 rounded-xl p-3.5 sm:p-6 shadow-2xl relative overflow-hidden backdrop-blur-md flex flex-col justify-between">
           
           {/* Top telemetry bar */}
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3 text-xs font-mono text-slate-400">
-            <div className="flex items-center gap-2">
-              <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-              <span>NODAL MESH // {nodes.length} ACTIVE CLUSTERS</span>
+          <div className="flex items-center justify-between gap-2 border-b border-slate-800 pb-3 text-[11px] sm:text-xs font-mono text-slate-400">
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+              <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse shrink-0" />
+              <span className="truncate">NODAL MESH // {nodes.length} ACTIVE CLUSTERS</span>
             </div>
-            <div className="text-[11px] text-slate-500">
-              CLICK A NODE TO INSPECT
+            <div className="text-[10px] sm:text-[11px] text-slate-500 shrink-0">
+              TAP NODE
             </div>
           </div>
 
-          {/* SVG Canvas Map (Responsive on desktop/tablet) */}
-          <div className="relative w-full h-[360px] sm:h-[400px] my-2">
+          {/* SVG Canvas Map (Responsive on mobile, tablet & desktop) */}
+          <div className="relative w-full h-[380px] sm:h-[420px] my-2 px-2">
             
             {/* SVG Lines between nodes */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none">
@@ -123,14 +123,14 @@ export const NetworkMap: React.FC = () => {
                   onClick={() => handleSelectNode(node.id)}
                   style={{ left: `${node.x}%`, top: `${node.y}%` }}
                   className={`absolute -translate-x-1/2 -translate-y-1/2 group transition-transform focus:outline-none ${
-                    isSelected ? 'scale-110 z-20' : 'hover:scale-105 z-10'
+                    isSelected ? 'scale-105 sm:scale-110 z-20' : 'hover:scale-105 z-10'
                   }`}
                   aria-label={`Inspect ${node.label} node`}
                 >
                   <div className="flex flex-col items-center">
                     {/* Circle Node */}
                     <div
-                      className={`w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg ${
+                      className={`w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg ${
                         isSelected
                           ? 'bg-cyan-500 text-black border-2 border-white ring-4 ring-cyan-500/40 shadow-cyan-500/50'
                           : isNeighbor
@@ -138,19 +138,19 @@ export const NetworkMap: React.FC = () => {
                           : 'bg-[#0e141f] text-slate-300 border border-slate-700 hover:border-cyan-500/50'
                       }`}
                     >
-                      {node.id === 'linux' && <Terminal className="w-5 h-5" />}
-                      {node.id === 'networking' && <Network className="w-5 h-5" />}
-                      {node.id === 'sysadmin' && <Server className="w-5 h-5" />}
-                      {node.id === 'cybersecurity' && <Shield className="w-5 h-5" />}
-                      {node.id === 'siem' && <Radio className="w-5 h-5" />}
-                      {node.id === 'python' && <Code className="w-5 h-5" />}
-                      {node.id === 'shell' && <Terminal className="w-5 h-5" />}
-                      {node.id === 'infrastructure' && <Cpu className="w-5 h-5" />}
+                      {node.id === 'linux' && <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />}
+                      {node.id === 'networking' && <Network className="w-4 h-4 sm:w-5 sm:h-5" />}
+                      {node.id === 'sysadmin' && <Server className="w-4 h-4 sm:w-5 sm:h-5" />}
+                      {node.id === 'cybersecurity' && <Shield className="w-4 h-4 sm:w-5 sm:h-5" />}
+                      {node.id === 'siem' && <Radio className="w-4 h-4 sm:w-5 sm:h-5" />}
+                      {node.id === 'python' && <Code className="w-4 h-4 sm:w-5 sm:h-5" />}
+                      {node.id === 'shell' && <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />}
+                      {node.id === 'infrastructure' && <Cpu className="w-4 h-4 sm:w-5 sm:h-5" />}
                     </div>
 
                     {/* Node Label Pill */}
                     <span
-                      className={`mt-1.5 px-2 py-0.5 rounded text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider transition-colors ${
+                      className={`mt-1 px-1.5 sm:px-2 py-0.5 rounded text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap transition-colors ${
                         isSelected
                           ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/60'
                           : 'bg-slate-900/90 text-slate-400 border border-slate-800'
@@ -165,27 +165,31 @@ export const NetworkMap: React.FC = () => {
           </div>
 
           {/* Quick Node Switcher chips for mobile / touch accessibility */}
-          <div className="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
-            <span className="text-[10px] font-mono text-slate-500 py-1 mr-1">QUICK SELECT:</span>
-            {nodes.map(node => (
-              <button
-                key={node.id}
-                onClick={() => handleSelectNode(node.id)}
-                className={`px-2 py-1 rounded text-[11px] font-mono transition-all ${
-                  node.id === activeNodeId
-                    ? 'bg-cyan-500 text-black font-bold'
-                    : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
-                }`}
-              >
-                {node.label}
-              </button>
-            ))}
+          <div className="pt-3 border-t border-slate-800/80 space-y-2 sm:space-y-0 sm:flex sm:flex-wrap sm:items-center sm:gap-1.5">
+            <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider sm:py-1 sm:mr-1">
+              QUICK SELECT:
+            </div>
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5">
+              {nodes.map(node => (
+                <button
+                  key={node.id}
+                  onClick={() => handleSelectNode(node.id)}
+                  className={`px-2.5 py-1.5 sm:py-1 rounded text-[11px] font-mono transition-all text-center truncate ${
+                    node.id === activeNodeId
+                      ? 'bg-cyan-500 text-black font-bold'
+                      : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+                  }`}
+                >
+                  {node.label}
+                </button>
+              ))}
+            </div>
           </div>
 
         </div>
 
         {/* Right: Node Telemetry Dossier Panel */}
-        <div className="lg:col-span-4 bg-[#0d1117] border border-cyan-500/30 rounded-xl p-5 sm:p-6 shadow-2xl backdrop-blur-md">
+        <div className="lg:col-span-4 bg-[#0d1117] border border-cyan-500/30 rounded-xl p-4 sm:p-6 shadow-2xl backdrop-blur-md w-full">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 font-mono">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping" />

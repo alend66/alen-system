@@ -310,8 +310,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
         </div>
 
         {/* Footer info */}
-        <div className="bg-[#0c111a] px-4 py-2 border-t border-slate-800 text-[10px] text-slate-500 flex items-center justify-between">
-          <span>Navigate with <kbd className="px-1 bg-slate-800 rounded">↑</kbd> <kbd className="px-1 bg-slate-800 rounded">↓</kbd>, <kbd className="px-1 bg-slate-800 rounded">Enter</kbd> to select</span>
+        <div className="bg-[#0c111a] px-4 py-2 border-t border-slate-800 text-[10px] text-slate-500 flex items-center justify-between gap-2">
+          <span className="hidden sm:inline">Navigate with <kbd className="px-1 bg-slate-800 rounded">↑</kbd> <kbd className="px-1 bg-slate-800 rounded">↓</kbd>, <kbd className="px-1 bg-slate-800 rounded">Enter</kbd> to select</span>
+          <span className="sm:hidden">Tap any node to navigate</span>
           <span><kbd className="px-1 bg-slate-800 rounded">Esc</kbd> to close</span>
         </div>
 

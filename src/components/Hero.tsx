@@ -24,46 +24,48 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onExploreSystem }) => 
   const { personal } = PORTFOLIO_DATA;
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden cyber-grid">
+    <section className="relative min-h-screen flex flex-col justify-center pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden cyber-grid">
       {/* Cinematic Lighting Accents */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-gradient-to-tr from-cyan-600/10 via-emerald-600/10 to-transparent blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[550px] h-[350px] bg-gradient-to-tr from-cyan-600/10 via-emerald-600/10 to-transparent blur-[120px] pointer-events-none" />
       <div className="absolute top-20 right-10 w-72 h-72 bg-blue-600/10 blur-[100px] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         
         {/* Left Column: Hero Narrative */}
-        <div className="lg:col-span-7 space-y-6">
+        <div className="lg:col-span-7 min-w-0 space-y-5 sm:space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
           
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs font-mono text-cyan-300 shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 px-3 py-1.5 rounded-2xl sm:rounded-full bg-slate-900/90 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300 shadow-sm max-w-full">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="tracking-wider uppercase font-semibold">ALEN // SYSTEM KERNEL</span>
             </span>
-            <span className="tracking-wider uppercase font-semibold">ALEN // SYSTEM KERNEL</span>
-            <span className="text-slate-500">|</span>
-            <span className="text-slate-400 flex items-center gap-1">
-              <MapPin className="w-3 h-3 text-cyan-400" /> {personal.location}
+            <span className="text-slate-600">|</span>
+            <span className="text-slate-400 inline-flex items-center gap-1">
+              <MapPin className="w-3 h-3 text-cyan-400 shrink-0" /> {personal.location}
             </span>
           </div>
 
           {/* Headline Name */}
-          <div className="space-y-2">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-sans">
+          <div className="space-y-2.5 w-full">
+            <h1 className="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-sans leading-tight">
               ALEN DAVIS K
             </h1>
-            <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base font-mono text-cyan-400">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-xs sm:text-base font-mono text-cyan-400">
               <span className="text-emerald-400 font-bold">&gt;</span>
               <span className="font-semibold text-slate-200">CAREER GOAL:</span>
-              <span className="px-2 py-0.5 rounded bg-cyan-950/70 border border-cyan-500/30 text-cyan-300 font-bold">
+              <span className="px-2.5 py-0.5 rounded bg-cyan-950/70 border border-cyan-500/30 text-cyan-300 font-bold">
                 {personal.careerGoal}
               </span>
             </div>
           </div>
 
           {/* Engineer Motto Quote */}
-          <blockquote className="border-l-2 border-cyan-500/60 pl-4 py-1 space-y-1">
-            <p className="text-lg sm:text-xl font-mono text-slate-200 font-medium leading-snug">
+          <blockquote className="w-full max-w-xl lg:max-w-none rounded-lg lg:rounded-none bg-slate-900/50 lg:bg-transparent border border-slate-800/80 lg:border-0 border-l-2 border-l-cyan-500/60 p-3.5 sm:p-4 lg:p-0 lg:pl-4 lg:py-1 space-y-1 text-center lg:text-left">
+            <p className="text-sm sm:text-xl font-mono text-slate-200 font-medium leading-relaxed sm:leading-snug">
               &ldquo;Building reliable systems.<br />
               <span className="text-cyan-400">Understanding how they break.</span><br />
               Making them stronger.&rdquo;
@@ -71,22 +73,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onExploreSystem }) => 
           </blockquote>
 
           {/* Supporting Bio */}
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-400 max-w-2xl leading-relaxed">
             {personal.professionalIdentity}
           </p>
 
           {/* Action CTAs */}
-          <div className="pt-2 flex flex-wrap items-center gap-4">
+          <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
             <button
               onClick={() => {
                 sound.playExecute();
                 onExploreSystem();
               }}
-              className="px-6 py-3.5 rounded bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-mono font-bold text-xs sm:text-sm tracking-wide uppercase transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:-translate-y-0.5 flex items-center gap-2 group"
+              className="w-full sm:w-auto justify-center px-6 py-3.5 rounded bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-mono font-bold text-xs sm:text-sm tracking-wide uppercase transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:-translate-y-0.5 flex items-center gap-2 group"
             >
-              <Terminal className="w-4 h-4" />
+              <Terminal className="w-4 h-4 shrink-0" />
               <span>ENTER THE SYSTEM</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
             </button>
 
             <button
@@ -94,15 +96,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onExploreSystem }) => 
                 sound.playKeypress();
                 onOpenResume();
               }}
-              className="px-6 py-3.5 rounded bg-slate-900/90 border border-slate-700 hover:border-cyan-500/50 text-slate-200 hover:text-cyan-300 font-mono font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all flex items-center gap-2 hover:bg-slate-800/80"
+              className="w-full sm:w-auto justify-center px-6 py-3.5 rounded bg-slate-900/90 border border-slate-700 hover:border-cyan-500/50 text-slate-200 hover:text-cyan-300 font-mono font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all flex items-center gap-2 hover:bg-slate-800/80"
             >
-              <FileText className="w-4 h-4 text-cyan-400" />
+              <FileText className="w-4 h-4 text-cyan-400 shrink-0" />
               <span>VIEW RESUME</span>
             </button>
           </div>
 
           {/* Quick Command Suggestion */}
-          <div className="pt-2 flex items-center gap-2 text-xs font-mono text-slate-500">
+          <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs font-mono text-slate-500">
             <span>Try typing</span>
             <a 
               href="#terminal" 
@@ -117,43 +119,45 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onExploreSystem }) => 
         </div>
 
         {/* Right Column: Operator Command Deck (Biometric Portrait + Live Telemetry HUD) */}
-        <div className="lg:col-span-5 space-y-6">
+        <div className="lg:col-span-5 min-w-0 space-y-5 sm:space-y-6 w-full">
           
           {/* Biometric Operator Identity Card with Animated Portrait */}
-          <div className="relative rounded-2xl bg-[#0d1117]/90 border border-cyan-500/30 p-6 shadow-2xl backdrop-blur-md flex flex-col items-center justify-center overflow-hidden">
+          <div className="relative rounded-2xl bg-[#0d1117]/90 border border-cyan-500/30 p-4 sm:p-6 shadow-2xl backdrop-blur-md flex flex-col items-center justify-center overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-3xl pointer-events-none" />
             
-            <div className="w-full flex items-center justify-between border-b border-slate-800 pb-3 mb-5 font-mono">
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-300">
-                <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                <span>OPERATOR BIOMETRIC TELEMETRY</span>
+            <div className="w-full flex items-center justify-between gap-2 border-b border-slate-800 pb-3 mb-6 font-mono">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold text-slate-300 min-w-0">
+                <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />
+                <span className="truncate">OPERATOR BIOMETRIC TELEMETRY</span>
               </div>
-              <span className="text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 px-2 py-0.5 rounded font-bold">
+              <span className="text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 px-2 py-0.5 rounded font-bold shrink-0 whitespace-nowrap">
                 ROOT AUTH
               </span>
             </div>
 
-            <EngineerPortrait size="md" showTelemetry={true} />
+            <div className="py-1">
+              <EngineerPortrait size="md" showTelemetry={true} />
+            </div>
           </div>
 
           {/* Live System Status Panel (Telemetry HUD) */}
-          <div className="relative rounded-xl bg-[#0d1117]/90 border border-cyan-500/30 p-5 sm:p-6 shadow-2xl backdrop-blur-md">
+          <div className="relative rounded-xl bg-[#0d1117]/90 border border-cyan-500/30 p-4 sm:p-6 shadow-2xl backdrop-blur-md">
             
             {/* Header / Telemetry Header */}
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 font-mono">
-              <div className="flex items-center gap-2">
-                <Radio className="w-4 h-4 text-emerald-400 animate-pulse" />
-                <span className="text-xs font-bold tracking-wider text-slate-300 uppercase">
+            <div className="flex items-center justify-between gap-2 border-b border-slate-800 pb-3 mb-4 font-mono">
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                <Radio className="w-4 h-4 text-emerald-400 animate-pulse shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold tracking-wider text-slate-300 uppercase truncate">
                   TELEMETRY HUD // DIAGNOSTIC MATRIX
                 </span>
               </div>
-              <span className="text-[10px] text-slate-500 border border-slate-800 px-1.5 py-0.5 rounded">
+              <span className="text-[10px] text-slate-500 border border-slate-800 px-1.5 py-0.5 rounded shrink-0 whitespace-nowrap">
                 LIVE INTERFACE
               </span>
             </div>
 
             {/* Telemetry Status Grid */}
-            <div className="space-y-2.5 font-mono">
+            <div className="space-y-2 sm:space-y-2.5 font-mono">
               {personal.statusPanel.map((item) => {
                 let badgeClass = 'text-emerald-400 bg-emerald-950/40 border-emerald-500/30';
                 let indicator = 'bg-emerald-400';
@@ -169,15 +173,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onExploreSystem }) => 
                 return (
                   <div 
                     key={item.label}
-                    className="flex items-center justify-between p-2.5 rounded bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 transition-colors"
+                    className="flex items-center justify-between gap-2 p-2.5 rounded bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 transition-colors"
                   >
-                    <div className="flex items-center gap-2">
-                      <span className={`w-1.5 h-1.5 rounded-full ${indicator} animate-pulse`} />
-                      <span className="text-xs text-slate-400 tracking-wider">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${indicator} animate-pulse`} />
+                      <span className="text-[11px] sm:text-xs text-slate-400 tracking-wider truncate">
                         {item.label}
                       </span>
                     </div>
-                    <span className={`px-2 py-0.5 rounded border text-xs font-bold tracking-widest ${badgeClass}`}>
+                    <span className={`px-2 py-0.5 rounded border text-[11px] sm:text-xs font-bold tracking-widest shrink-0 ${badgeClass}`}>
                       {item.value}
                     </span>
                   </div>
@@ -186,18 +190,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onExploreSystem }) => 
             </div>
 
             {/* System Specs Footer inside HUD */}
-            <div className="mt-5 pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-2 text-center font-mono text-[11px]">
-              <div className="p-2 rounded bg-slate-900/40 border border-slate-800/60">
-                <div className="text-slate-500 text-[10px]">CORE ARCH</div>
-                <div className="text-slate-200 font-semibold mt-0.5">POSIX / LINUX</div>
+            <div className="mt-4 sm:mt-5 pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-1.5 sm:gap-2 text-center font-mono text-[10px] sm:text-[11px]">
+              <div className="p-2 rounded bg-slate-900/40 border border-slate-800/60 flex flex-col justify-center">
+                <div className="text-slate-500 text-[9px] sm:text-[10px] truncate">CORE ARCH</div>
+                <div className="text-slate-200 font-semibold mt-0.5 truncate">POSIX / LINUX</div>
               </div>
-              <div className="p-2 rounded bg-slate-900/40 border border-slate-800/60">
-                <div className="text-slate-500 text-[10px]">NET STACK</div>
-                <div className="text-slate-200 font-semibold mt-0.5">TCP/IP • CIDR</div>
+              <div className="p-2 rounded bg-slate-900/40 border border-slate-800/60 flex flex-col justify-center">
+                <div className="text-slate-500 text-[9px] sm:text-[10px] truncate">NET STACK</div>
+                <div className="text-slate-200 font-semibold mt-0.5 truncate">TCP/IP • CIDR</div>
               </div>
-              <div className="p-2 rounded bg-slate-900/40 border border-slate-800/60">
-                <div className="text-slate-500 text-[10px]">SIEM PIPELINE</div>
-                <div className="text-slate-200 font-semibold mt-0.5">SPLUNK SOC</div>
+              <div className="p-2 rounded bg-slate-900/40 border border-slate-800/60 flex flex-col justify-center">
+                <div className="text-slate-500 text-[9px] sm:text-[10px] truncate">SIEM PIPELINE</div>
+                <div className="text-slate-200 font-semibold mt-0.5 truncate">SPLUNK SOC</div>
               </div>
             </div>
 
@@ -214,7 +218,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onExploreSystem }) => 
       </div>
 
       {/* Downward indicator */}
-      <div className="mt-16 text-center">
+      <div className="mt-10 sm:mt-16 text-center">
         <a
           href="#terminal"
           onClick={() => sound.playKeypress()}

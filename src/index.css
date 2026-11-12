@@ -152,3 +152,12 @@
 .animate-laser-scan {
   animation: laserScan 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
+/* Hide scrollbar for horizontal pill bar on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

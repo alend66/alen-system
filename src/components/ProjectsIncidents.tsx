@@ -46,12 +46,12 @@ export const ProjectsIncidents: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="projects" className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="text-center mb-12 space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs font-mono text-cyan-300">
-          <ShieldAlert className="w-3.5 h-3.5 text-cyan-400" />
-          FEATURE 03 // INCIDENT DOSSIERS & INVESTIGATIONS
+      <div className="text-center mb-8 sm:mb-12 space-y-2">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300">
+          <ShieldAlert className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+          <span>FEATURE 03 // INCIDENT DOSSIERS & INVESTIGATIONS</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
           Projects as Technical Incidents
@@ -61,7 +61,7 @@ export const ProjectsIncidents: React.FC = () => {
         </p>
       </div>
 
-      <div className="space-y-10">
+      <div className="space-y-6 sm:space-y-10">
         {projects.map((project, index) => {
           const isSplunk = project.id === 'splunk-siem-monitoring';
 
@@ -71,17 +71,39 @@ export const ProjectsIncidents: React.FC = () => {
               className="bg-[#090d14]/90 border border-slate-800 hover:border-cyan-500/40 rounded-xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300"
             >
               {/* Incident Header Ribbon */}
-              <div className="bg-[#0e131d] px-5 py-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="text-cyan-400 font-bold uppercase tracking-wider">
-                    {project.incidentNumber}
+              <div className="bg-[#0e131d] px-4 sm:px-5 py-3.5 sm:py-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 font-mono text-xs">
+                <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+                    <span className="text-cyan-400 font-bold uppercase tracking-wider text-[11px] sm:text-xs truncate">
+                      {project.incidentNumber}
+                    </span>
+                  </div>
+
+                  {/* Mobile Status Badge */}
+                  <span
+                    className={`sm:hidden px-2 py-0.5 rounded text-[10px] font-bold tracking-widest shrink-0 ${
+                      project.status === 'RESOLVED'
+                        ? 'bg-emerald-950/70 text-emerald-400 border border-emerald-500/40'
+                        : project.status === 'DEPLOYED'
+                        ? 'bg-cyan-950/70 text-cyan-400 border border-cyan-500/40'
+                        : 'bg-amber-950/70 text-amber-400 border border-amber-500/40'
+                    }`}
+                  >
+                    {project.status}
                   </span>
-                  <span className="text-slate-600">|</span>
-                  <span className="text-slate-300 font-semibold">{project.technology}</span>
+
+                  <span className="hidden sm:inline text-slate-600">|</span>
+                  <span className="hidden sm:inline text-slate-300 font-semibold">{project.technology}</span>
                 </div>
 
-                <div className="flex items-center gap-2">
+                {/* Mobile Tech subtitle */}
+                <div className="sm:hidden text-[11px] text-slate-300 font-semibold pl-4">
+                  Stack: <span className="text-cyan-300">{project.technology}</span>
+                </div>
+
+                {/* Desktop Status Badge */}
+                <div className="hidden sm:flex items-center gap-2 shrink-0">
                   <span className="text-slate-500">INCIDENT STATE:</span>
                   <span
                     className={`px-2.5 py-0.5 rounded text-xs font-bold tracking-widest ${
@@ -98,16 +120,16 @@ export const ProjectsIncidents: React.FC = () => {
               </div>
 
               {/* Incident Body */}
-              <div className="p-6 sm:p-8 space-y-6">
+              <div className="p-4 sm:p-8 space-y-5 sm:space-y-6">
                 
                 {/* Title & Tags */}
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-sans">
+                  <h3 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight font-sans">
                     {project.title}
                   </h3>
-                  <div className="flex flex-wrap gap-2 mt-2 font-mono">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 font-mono">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[11px] px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">
+                      <span key={tag} className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">
                         #{tag}
                       </span>
                     ))}
@@ -115,21 +137,21 @@ export const ProjectsIncidents: React.FC = () => {
                 </div>
 
                 {/* Problem vs Approach Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-lg bg-slate-900/60 border border-slate-800/80 space-y-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="p-3.5 sm:p-4 rounded-lg bg-slate-900/60 border border-slate-800/80 space-y-2">
                     <div className="flex items-center gap-2 text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">
-                      <AlertTriangle className="w-4 h-4" />
-                      PROBLEM STATEMENT
+                      <AlertTriangle className="w-4 h-4 shrink-0" />
+                      <span>PROBLEM STATEMENT</span>
                     </div>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                       {project.problem}
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-lg bg-slate-900/60 border border-slate-800/80 space-y-2">
+                  <div className="p-3.5 sm:p-4 rounded-lg bg-slate-900/60 border border-slate-800/80 space-y-2">
                     <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">
-                      <Terminal className="w-4 h-4" />
-                      ENGINEERING APPROACH
+                      <Terminal className="w-4 h-4 shrink-0" />
+                      <span>ENGINEERING APPROACH</span>
                     </div>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                       {project.approach}
@@ -139,11 +161,11 @@ export const ProjectsIncidents: React.FC = () => {
 
                 {/* Splunk SIEM Mini SOC Dashboard Visualization */}
                 {isSplunk && project.socVisualization && (
-                  <div className="mt-4 p-5 rounded-xl bg-[#070a10] border border-cyan-500/30 space-y-4">
-                    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-3">
+                  <div className="mt-4 p-4 sm:p-5 rounded-xl bg-[#070a10] border border-cyan-500/30 space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3">
                       <div className="flex items-center gap-2 font-mono text-xs">
-                        <Radio className="w-4 h-4 text-emerald-400 animate-pulse" />
-                        <span className="text-white font-bold uppercase tracking-wider">
+                        <Radio className="w-4 h-4 text-emerald-400 animate-pulse shrink-0" />
+                        <span className="text-white font-bold uppercase tracking-wider text-[11px] sm:text-xs">
                           SOC INGESTION TELEMETRY // BRUTE-FORCE DETECTOR
                         </span>
                       </div>
@@ -151,19 +173,19 @@ export const ProjectsIncidents: React.FC = () => {
                       <button
                         onClick={handleSimulateSoc}
                         disabled={isSimulatingSoc}
-                        className={`px-3 py-1.5 rounded font-mono text-xs font-bold uppercase flex items-center gap-2 transition-all ${
+                        className={`w-full sm:w-auto justify-center px-3 py-2 sm:py-1.5 rounded font-mono text-xs font-bold uppercase flex items-center gap-2 transition-all shrink-0 ${
                           isSimulatingSoc
                             ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
                             : 'bg-cyan-950 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-900/60 shadow-lg shadow-cyan-500/20'
                         }`}
                       >
-                        <Play className="w-3.5 h-3.5 fill-current" />
+                        <Play className="w-3.5 h-3.5 fill-current shrink-0" />
                         <span>{isSimulatingSoc ? 'Streaming Logs...' : 'Simulate Log Pipeline'}</span>
                       </button>
                     </div>
 
                     {/* Visual SOC Pipeline */}
-                    <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 pt-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 pt-1 sm:pt-2">
                       {project.socVisualization.steps.map((step, idx) => {
                         const isCurrent = activeSocStep === idx + 1;
                         const isPassed = activeSocStep > idx + 1;
@@ -171,17 +193,19 @@ export const ProjectsIncidents: React.FC = () => {
                         return (
                           <div
                             key={step.name}
-                            className={`p-3 rounded-lg border font-mono transition-all text-center relative ${
+                            className={`p-3 rounded-lg border font-mono transition-all text-left sm:text-center flex sm:block items-center justify-between gap-3 relative ${
                               isCurrent
-                                ? 'bg-cyan-950/80 border-cyan-400 ring-2 ring-cyan-500/30 scale-105 z-10'
+                                ? 'bg-cyan-950/80 border-cyan-400 ring-2 ring-cyan-500/30 sm:scale-105 z-10'
                                 : isPassed
                                 ? 'bg-slate-900/90 border-emerald-500/40 text-emerald-300'
                                 : 'bg-slate-900/40 border-slate-800 text-slate-400'
                             }`}
                           >
-                            <div className="text-[10px] text-slate-500 mb-1">NODE 0{idx + 1}</div>
-                            <div className="font-bold text-xs text-slate-200">{step.name}</div>
-                            <div className="text-[10px] text-slate-400 mt-1 leading-tight">{step.detail}</div>
+                            <div className="min-w-0">
+                              <div className="text-[10px] text-slate-500 mb-0.5 sm:mb-1">NODE 0{idx + 1}</div>
+                              <div className="font-bold text-xs text-slate-200">{step.name}</div>
+                              <div className="text-[10px] text-slate-400 mt-0.5 sm:mt-1 leading-tight">{step.detail}</div>
+                            </div>
 
                             {idx < 4 && (
                               <div className="hidden sm:block absolute -right-2 top-1/2 -translate-y-1/2 z-20 text-slate-600">
@@ -195,14 +219,14 @@ export const ProjectsIncidents: React.FC = () => {
 
                     {/* Alert Banner */}
                     {alertTriggered && (
-                      <div className="p-3 rounded-lg bg-red-950/50 border border-red-500/60 text-red-300 font-mono text-xs flex items-center justify-between animate-fadeIn">
-                        <div className="flex items-center gap-2">
-                          <Flame className="w-4 h-4 text-red-400 animate-bounce" />
+                      <div className="p-3 rounded-lg bg-red-950/50 border border-red-500/60 text-red-300 font-mono text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2 animate-fadeIn">
+                        <div className="flex items-start sm:items-center gap-2">
+                          <Flame className="w-4 h-4 text-red-400 animate-bounce shrink-0 mt-0.5 sm:mt-0" />
                           <span>
                             <strong>[CRITICAL ALERT]</strong> Event ID 4625 anomaly: 10 failed logon attempts detected from 192.168.1.105 within 30s!
                           </span>
                         </div>
-                        <span className="text-[10px] bg-red-900/60 px-2 py-0.5 rounded border border-red-500/30">
+                        <span className="self-start sm:self-auto text-[10px] bg-red-900/60 px-2 py-0.5 rounded border border-red-500/30 shrink-0">
                           CORRELATION FIRED
                         </span>
                       </div>

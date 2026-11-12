@@ -103,17 +103,17 @@ export const EngineerPortrait: React.FC<EngineerPortraitProps> = ({
 
         {/* Top Tag */}
         {showTelemetry && (
-          <div className="absolute -top-3 px-2.5 py-0.5 rounded-full bg-[#090d14]/90 border border-cyan-500/50 text-[10px] text-cyan-300 shadow-md flex items-center gap-1.5 backdrop-blur-md">
-            <Cpu className="w-3 h-3 text-cyan-400" />
+          <div className="absolute -top-3 px-2.5 py-0.5 rounded-full bg-[#090d14]/90 border border-cyan-500/50 text-[10px] text-cyan-300 shadow-md flex items-center gap-1.5 backdrop-blur-md whitespace-nowrap z-20">
+            <Cpu className="w-3 h-3 text-cyan-400 shrink-0" />
             <span>OPERATOR // ADK-01</span>
           </div>
         )}
 
         {/* Bottom Tag */}
         {showTelemetry && (
-          <div className="absolute -bottom-3 px-2.5 py-0.5 rounded-full bg-[#090d14]/90 border border-emerald-500/50 text-[10px] text-emerald-400 shadow-md flex items-center gap-1.5 backdrop-blur-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <ShieldCheck className="w-3 h-3 text-emerald-400" />
+          <div className="absolute -bottom-3 px-2.5 py-0.5 rounded-full bg-[#090d14]/90 border border-emerald-500/50 text-[10px] text-emerald-400 shadow-md flex items-center gap-1.5 backdrop-blur-md whitespace-nowrap z-20">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
             <span className="font-bold">IDENTITY: VERIFIED</span>
           </div>
         )}

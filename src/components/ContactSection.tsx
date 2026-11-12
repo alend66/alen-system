@@ -48,26 +48,26 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="connect" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto font-mono">
+    <section id="connect" className="relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto font-mono">
       {/* Header */}
-      <div className="text-center mb-12 space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs text-cyan-300">
-          <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-          CONNECTION PROTOCOL // INGESTION SOCKET
+      <div className="text-center mb-8 sm:mb-12 space-y-2">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs text-cyan-300">
+          <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse shrink-0" />
+          <span>CONNECTION PROTOCOL // INGESTION SOCKET</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-sans">
+        <h2 className="text-2xl sm:text-5xl font-extrabold text-white tracking-tight font-sans">
           ESTABLISH CONNECTION
         </h2>
         <div className="flex items-center justify-center gap-2 text-xs text-emerald-400 font-bold tracking-wider pt-1">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          STATUS: OPEN TO OPPORTUNITIES
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
+          <span>STATUS: OPEN TO OPPORTUNITIES</span>
         </div>
       </div>
 
-      <div className="bg-[#090d14]/90 border border-cyan-500/30 rounded-2xl p-6 sm:p-10 shadow-2xl backdrop-blur-md space-y-8">
+      <div className="bg-[#090d14]/90 border border-cyan-500/30 rounded-2xl p-4 sm:p-10 shadow-2xl backdrop-blur-md space-y-6 sm:space-y-8">
         
         {/* Terminal Handshake Message */}
-        <div className="p-4 rounded-xl bg-[#06090e] border border-slate-800 space-y-2 text-xs">
+        <div className="p-3.5 sm:p-4 rounded-xl bg-[#06090e] border border-slate-800 space-y-2 text-xs">
           <div className="flex items-center gap-2 text-slate-400">
             <span className="text-emerald-400 font-bold">&gt;</span>
             <span className="text-cyan-300 font-bold">$ connect --with=alen</span>
@@ -78,10 +78,10 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
           
           {/* Email Card */}
-          <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
+          <div className="p-4 sm:p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
             <div className="flex items-center justify-between">
               <Mail className="w-5 h-5 text-cyan-400" />
               <button
@@ -105,7 +105,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Phone Card */}
-          <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
+          <div className="p-4 sm:p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
             <div className="flex items-center justify-between">
               <Phone className="w-5 h-5 text-emerald-400" />
               <button
@@ -129,7 +129,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Location Card */}
-          <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
+          <div className="p-4 sm:p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
             <div className="flex items-center justify-between">
               <MapPin className="w-5 h-5 text-cyan-400" />
               <span className="text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-1.5 py-0.5 rounded">
@@ -147,13 +147,13 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* Dispatch Message Console */}
-        <div className="p-6 rounded-xl bg-[#06090e] border border-slate-800/90 space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-            <div className="flex items-center gap-2 text-xs font-bold text-white">
-              <Terminal className="w-4 h-4 text-cyan-400" />
-              <span>DISPATCH TELEMETRY PACKET // SEND MESSAGE</span>
+        <div className="p-4 sm:p-6 rounded-xl bg-[#06090e] border border-slate-800/90 space-y-4">
+          <div className="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div className="flex items-center gap-2 text-[11px] sm:text-xs font-bold text-white min-w-0">
+              <Terminal className="w-4 h-4 text-cyan-400 shrink-0" />
+              <span className="truncate">DISPATCH TELEMETRY PACKET // SEND MESSAGE</span>
             </div>
-            <span className="text-[10px] text-slate-500">DIRECT PIPE</span>
+            <span className="text-[10px] text-slate-500 shrink-0">DIRECT PIPE</span>
           </div>
 
           {isSent ? (
@@ -213,17 +213,17 @@ export const ContactSection: React.FC = () => {
                 />
               </div>
 
-              <div className="flex items-center justify-between pt-2">
-                <span className="text-[11px] text-slate-500 flex items-center gap-1">
-                  <Shield className="w-3.5 h-3.5 text-emerald-400" />
-                  Direct routing to {personal.email}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
+                <span className="text-[11px] text-slate-500 flex items-center justify-center sm:justify-start gap-1.5">
+                  <Shield className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="truncate">Direct routing to {personal.email}</span>
                 </span>
 
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-cyan-500/20 active:scale-95 transition-all"
+                  className="w-full sm:w-auto justify-center px-6 py-3 sm:py-2.5 rounded bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-cyan-500/20 active:scale-95 transition-all"
                 >
-                  <Send className="w-3.5 h-3.5" />
+                  <Send className="w-3.5 h-3.5 shrink-0" />
                   <span>TRANSMIT PACKET</span>
                 </button>
               </div>

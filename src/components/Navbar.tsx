@@ -168,7 +168,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center gap-2">
+          <div className="flex sm:hidden items-center gap-1.5">
+            <button
+              onClick={() => {
+                sound.playKeypress();
+                onOpenCommandPalette();
+              }}
+              aria-label="Open Command Palette"
+              className="p-2 rounded border border-slate-800 bg-slate-900/80 text-cyan-400 hover:border-cyan-500/40"
+            >
+              <Command className="w-4 h-4" />
+            </button>
+
             <button
               onClick={toggleSound}
               aria-label="Toggle sound"
@@ -195,31 +206,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-[#0a0d14] border-b border-cyan-500/30 px-4 pt-3 pb-6 space-y-3 font-mono">
+        <div className="sm:hidden bg-[#0a0d14]/95 backdrop-blur-lg border-b border-cyan-500/30 px-4 pt-3 pb-5 space-y-3 font-mono shadow-2xl">
           <div className="grid grid-cols-2 gap-2 text-xs">
-            {navLinks.map((link) => (
+            {navLinks.map((link, idx) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={handleNavClick}
-                className="px-3 py-2 rounded bg-slate-900/60 border border-slate-800/80 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40"
+                className={`px-3 py-2.5 rounded bg-slate-900/70 border border-slate-800/80 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 flex items-center ${
+                  idx === navLinks.length - 1 ? 'col-span-2 justify-center font-bold text-cyan-300 border-cyan-500/30 bg-cyan-950/30' : ''
+                }`}
               >
-                &gt; {link.name}
+                <span className="text-cyan-400 mr-1.5">&gt;</span>
+                <span>{link.name}</span>
               </a>
             ))}
           </div>
 
-          <div className="pt-3 border-t border-slate-800 flex items-center gap-2">
+          <div className="pt-3 border-t border-slate-800 grid grid-cols-2 gap-2">
             <button
               onClick={() => {
                 sound.playKeypress();
                 setMobileMenuOpen(false);
                 onOpenCommandPalette();
               }}
-              className="flex-1 py-2 px-3 rounded bg-slate-900 border border-slate-800 text-xs text-slate-300 flex items-center justify-center gap-1.5"
+              className="py-2.5 px-3 rounded bg-slate-900 border border-slate-800 text-xs text-slate-300 flex items-center justify-center gap-1.5"
             >
-              <Command className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Search (Ctrl+K)</span>
+              <Command className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <span>Search System</span>
             </button>
             <button
               onClick={() => {
@@ -227,9 +241,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="flex-1 py-2 px-3 rounded bg-cyan-950 border border-cyan-500/40 text-xs text-cyan-300 flex items-center justify-center gap-1.5"
+              className="py-2.5 px-3 rounded bg-cyan-950 border border-cyan-500/40 text-xs text-cyan-300 flex items-center justify-center gap-1.5 font-semibold"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <FileText className="w-3.5 h-3.5 shrink-0" />
               <span>View Resume</span>
             </button>
           </div>

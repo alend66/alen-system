@@ -38,22 +38,22 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
       <div className="relative w-full max-w-4xl bg-[#0d1117] border border-cyan-500/40 rounded-2xl shadow-2xl overflow-hidden z-10 my-8 flex flex-col max-h-[92vh]">
         
         {/* Top Control Bar (Non-printable) */}
-        <div className="no-print bg-[#131924] px-5 py-3.5 border-b border-slate-800 flex items-center justify-between font-mono text-xs text-slate-300">
-          <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-cyan-400" />
-            <span className="font-bold text-white tracking-wider uppercase">
-              AUTHORITATIVE RESUME VIEWER // ALEN DAVIS K
+        <div className="no-print bg-[#131924] px-4 sm:px-5 py-3.5 border-b border-slate-800 flex items-center justify-between gap-2 font-mono text-xs text-slate-300">
+          <div className="flex items-center gap-2 min-w-0">
+            <FileText className="w-4 h-4 text-cyan-400 shrink-0" />
+            <span className="font-bold text-white tracking-wider uppercase truncate">
+              <span className="hidden sm:inline">AUTHORITATIVE </span>RESUME // ALEN DAVIS K
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <button
               onClick={handlePrint}
-              className="px-3 py-1.5 rounded bg-cyan-950/80 border border-cyan-500/40 hover:bg-cyan-900 text-cyan-300 text-xs font-mono flex items-center gap-1.5 transition-all shadow-sm"
+              className="px-2.5 sm:px-3 py-1.5 rounded bg-cyan-950/80 border border-cyan-500/40 hover:bg-cyan-900 text-cyan-300 text-xs font-mono flex items-center gap-1.5 transition-all shadow-sm"
               title="Print or Save as PDF"
             >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Print / Save PDF</span>
+              <Printer className="w-3.5 h-3.5 shrink-0" />
+              <span className="hidden xs:inline sm:inline">Print / PDF</span>
             </button>
             <button
               onClick={onClose}
@@ -65,22 +65,22 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Scrollable Printable Resume Sheet */}
-        <div className="p-6 sm:p-10 overflow-y-auto bg-[#0a0d14] text-slate-200 font-sans space-y-8 print:p-0 print:bg-white print:text-black">
+        <div className="p-4 sm:p-10 overflow-y-auto bg-[#0a0d14] text-slate-200 font-sans space-y-6 sm:space-y-8 print:p-0 print:bg-white print:text-black">
           
           {/* Header */}
           <div className="border-b border-slate-800 pb-6 print:border-black">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3.5 sm:gap-4">
                 <img 
                   src="/alen-davis.jpg" 
                   alt="Alen Davis K" 
-                  className="w-20 h-20 rounded-full object-cover border-2 border-cyan-500/60 print:border-gray-800 shadow-md shrink-0"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-cyan-500/60 print:border-gray-800 shadow-md shrink-0"
                 />
                 <div>
-                  <h1 className="text-3xl sm:text-4xl font-extrabold text-white print:text-black tracking-tight">
+                  <h1 className="text-2xl sm:text-4xl font-extrabold text-white print:text-black tracking-tight">
                     {personal.name}
                   </h1>
-                  <p className="text-sm font-mono text-cyan-400 print:text-gray-800 font-semibold mt-1">
+                  <p className="text-xs sm:text-sm font-mono text-cyan-400 print:text-gray-800 font-semibold mt-1">
                     Target: {personal.careerGoal}
                   </p>
                 </div>
@@ -88,15 +88,15 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
               <div className="font-mono text-xs space-y-1 text-slate-300 print:text-gray-700">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-cyan-400 print:text-black" />
+                  <MapPin className="w-3.5 h-3.5 text-cyan-400 print:text-black shrink-0" />
                   <span>{personal.location}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-cyan-400 print:text-black" />
-                  <a href={`mailto:${personal.email}`} className="hover:underline">{personal.email}</a>
+                  <Mail className="w-3.5 h-3.5 text-cyan-400 print:text-black shrink-0" />
+                  <a href={`mailto:${personal.email}`} className="hover:underline break-all">{personal.email}</a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-cyan-400 print:text-black" />
+                  <Phone className="w-3.5 h-3.5 text-cyan-400 print:text-black shrink-0" />
                   <span>{personal.phone}</span>
                 </div>
               </div>
@@ -118,11 +118,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="space-y-3 font-sans">
               {education.map((edu) => (
                 <div key={edu.degree} className="text-xs">
-                  <div className="flex justify-between font-bold text-white print:text-black text-sm">
+                  <div className="flex flex-col sm:flex-row sm:justify-between font-bold text-white print:text-black text-sm gap-0.5">
                     <span>{edu.degree}</span>
                     <span className="font-mono text-slate-400 print:text-gray-600 text-xs">{edu.location}</span>
                   </div>
-                  <div className="text-cyan-300 print:text-gray-700 font-semibold">{edu.institution}</div>
+                  <div className="text-cyan-300 print:text-gray-700 font-semibold mt-0.5">{edu.institution}</div>
                   <div className="text-slate-400 print:text-gray-600 mt-0.5">{edu.focus}</div>
                 </div>
               ))}
@@ -137,7 +137,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="space-y-4 font-sans">
               {experience.map((exp) => (
                 <div key={exp.organization} className="text-xs space-y-1.5">
-                  <div className="flex justify-between font-bold text-white print:text-black text-sm">
+                  <div className="flex flex-col sm:flex-row sm:justify-between font-bold text-white print:text-black text-sm gap-0.5">
                     <span>{exp.role}</span>
                     <span className="font-mono text-cyan-400 print:text-black text-xs">{exp.dateBadge}</span>
                   </div>
@@ -160,7 +160,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="space-y-4 font-sans">
               {projects.map((proj) => (
                 <div key={proj.id} className="text-xs space-y-1">
-                  <div className="flex justify-between font-bold text-white print:text-black text-sm">
+                  <div className="flex flex-col sm:flex-row sm:justify-between font-bold text-white print:text-black text-sm gap-0.5">
                     <span>{proj.title}</span>
                     <span className="font-mono text-emerald-400 print:text-black text-xs font-bold">[{proj.status}]</span>
                   </div>
@@ -180,14 +180,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <h2 className="text-xs font-mono font-bold tracking-widest text-cyan-400 print:text-black uppercase border-b border-slate-800 print:border-black pb-1">
               CREDENTIALS & CERTIFICATIONS
             </h2>
-            <div className="space-y-2 font-sans text-xs">
+            <div className="space-y-2.5 font-sans text-xs">
               {certifications.map((cert) => (
-                <div key={cert.title} className="flex justify-between items-baseline">
+                <div key={cert.title} className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0.5">
                   <div>
                     <span className="font-bold text-white print:text-black">{cert.title}</span>
-                    <span className="text-slate-400 print:text-gray-600 ml-2">({cert.issuer})</span>
+                    <span className="text-slate-400 print:text-gray-600 sm:ml-2 block sm:inline">({cert.issuer})</span>
                   </div>
-                  <span className="font-mono text-slate-400 print:text-gray-600 text-[11px]">{cert.date}</span>
+                  <span className="font-mono text-slate-400 print:text-gray-600 text-[11px] shrink-0">{cert.date}</span>
                 </div>
               ))}
             </div>
