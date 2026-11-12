@@ -229,3 +229,4 @@ export const FILM_PORTFOLIO_DATA = {
     aiCredit: 'Visuals created with AI (Google Gemini)',
   },
 };
+

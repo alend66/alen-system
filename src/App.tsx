@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BootSequence } from './components/BootSequence';
-import { CinematicFilm } from './components/CinematicFilm';
+import { BuildingPortfolio } from './components/BuildingPortfolio';
 import { CinematicCity } from './components/CinematicCity';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -16,11 +16,11 @@ import { CommandPalette } from './components/CommandPalette';
 import { ResumeModal } from './components/ResumeModal';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { Navigation, Sparkles, X } from 'lucide-react';
+import { Building2, Navigation, X } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [isBooting, setIsBooting] = useState<boolean>(false);
-  const [viewMode, setViewMode] = useState<'film' | 'city3d' | 'classic'>('film');
+  const [viewMode, setViewMode] = useState<'building' | 'city3d' | 'classic'>('building');
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [isResumeModalOpen, setIsResumeModalOpen] = useState<boolean>(false);
   const [isTerminalModalOpen, setIsTerminalModalOpen] = useState<boolean>(false);
@@ -50,33 +50,29 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div
-      className={`min-h-screen ${
-        viewMode === 'film' ? 'bg-[#080a24]' : 'bg-[#07090e] scanlines'
-      } text-slate-100 relative overflow-x-hidden`}
-    >
+    <div className="min-h-screen bg-[#050811] text-slate-100 scanlines relative overflow-x-hidden">
       {/* Boot Sequence Overlay */}
       {isBooting && (
         <BootSequence onComplete={() => setIsBooting(false)} />
       )}
 
-      {/* 1. SCROLL-DRIVEN CINEMATIC FILM PORTFOLIO (Default Experience from PDF 2 & Reel) */}
-      {viewMode === 'film' ? (
-        <CinematicFilm
+      {/* 1. 3D INTERACTIVE BUILDING PORTFOLIO WITH SLIDING DOORS INTO EACH ROOM (Default) */}
+      {viewMode === 'building' ? (
+        <BuildingPortfolio
           onOpenResume={() => setIsResumeModalOpen(true)}
-          onSwitchToCity3D={() => setViewMode('city3d')}
+          onOpenTerminalModal={() => setIsTerminalModalOpen(true)}
           onSwitchToClassicView={() => setViewMode('classic')}
         />
       ) : viewMode === 'city3d' ? (
-        /* 2. 3D CYBER-GAMING CITY MODE (From PDF 1) */
+        /* 2. 3D CYBER CITY MODE */
         <>
           <div className="fixed bottom-4 left-4 z-40">
             <button
-              onClick={() => setViewMode('film')}
-              className="film-frosted-pill px-3.5 py-2 rounded-full text-xs font-cinzel text-[#fff3cf] flex items-center gap-1.5 shadow-xl"
+              onClick={() => setViewMode('building')}
+              className="px-3.5 py-2 rounded-full bg-slate-900/90 border border-cyan-500/40 text-xs font-mono text-cyan-300 flex items-center gap-1.5 shadow-xl"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#f1cf86]" />
-              <span>Return to Film Mode</span>
+              <Building2 className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Enter HQ Building</span>
             </button>
           </div>
           <CinematicCity
@@ -94,21 +90,21 @@ export const App: React.FC = () => {
             onOpenResume={() => setIsResumeModalOpen(true)}
           />
 
-          {/* Floating Buttons to Return to Film Mode or 3D City */}
+          {/* Floating Buttons to Return to 3D Building Tour */}
           <div className="fixed bottom-4 right-4 z-40 flex items-center gap-2">
             <button
-              onClick={() => setViewMode('film')}
-              className="px-4 py-2.5 rounded-full bg-gradient-to-r from-[#f1cf86] to-[#f6b6d6] text-[#080a24] font-cinzel font-extrabold text-xs shadow-xl flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
+              onClick={() => setViewMode('building')}
+              className="px-4 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-black font-mono font-extrabold text-xs shadow-xl shadow-cyan-500/30 flex items-center gap-2 hover:scale-105 active:scale-95 transition-all"
             >
-              <Sparkles className="w-4 h-4" />
-              <span>FILM MODE</span>
+              <Building2 className="w-4 h-4" />
+              <span>ENTER HQ BUILDING</span>
             </button>
             <button
               onClick={() => setViewMode('city3d')}
-              className="px-4 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-black font-mono font-extrabold text-xs shadow-xl shadow-cyan-500/30 flex items-center gap-2 hover:scale-105 active:scale-95 transition-all"
+              className="px-3.5 py-2.5 rounded-full bg-slate-900 border border-cyan-500/40 text-cyan-300 font-mono font-bold text-xs shadow-xl flex items-center gap-1.5 hover:bg-slate-800 transition-all"
             >
-              <Navigation className="w-4 h-4" />
-              <span>3D CITY</span>
+              <Navigation className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">3D CITY</span>
             </button>
           </div>
 
@@ -144,7 +140,7 @@ export const App: React.FC = () => {
         </div>
       )}
 
-      {/* Interactive Terminal Modal when triggered from 3D City HUD */}
+      {/* Interactive Terminal Modal when triggered from 3D Building HUD */}
       {isTerminalModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
           <div className="fixed inset-0" onClick={() => setIsTerminalModalOpen(false)} />

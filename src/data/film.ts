@@ -215,3 +215,4 @@ export function computeCanvasDimAmount(filmProgress: number): number {
   }
   return maxOpacity * 0.28;
 }
+
