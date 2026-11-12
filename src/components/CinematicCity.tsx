@@ -252,9 +252,9 @@ export const CinematicCity: React.FC<CinematicCityProps> = ({
 
     // Adjust camera for mobile portrait screens so wide billboards and road fit cleanly
     const isPortraitMobile = window.innerWidth < 640;
-    const camX = isPortraitMobile ? targetScene.cameraOffset.x * 0.65 : targetScene.cameraOffset.x;
-    const camY = isPortraitMobile ? targetScene.cameraOffset.y + 1.8 : targetScene.cameraOffset.y;
-    const camZ = isPortraitMobile ? targetScene.cameraOffset.z + 5.5 : targetScene.cameraOffset.z;
+    const camX = isPortraitMobile ? targetScene.cameraOffset.x * 0.45 : targetScene.cameraOffset.x;
+    const camY = isPortraitMobile ? targetScene.cameraOffset.y + 2.4 : targetScene.cameraOffset.y;
+    const camZ = isPortraitMobile ? targetScene.cameraOffset.z + 8.5 : targetScene.cameraOffset.z;
 
     const dur = immediate ? 0.1 : 2.2;
 
@@ -1001,6 +1001,40 @@ export const CinematicCity: React.FC<CinematicCityProps> = ({
       accent: '#00f0ff'
     });
 
+    // Also load existing visual artwork from /gta/*.jpg onto illuminated skyline billboards along the route
+    const districtArtBillboards: { url: string; x: number; y: number; z: number; rotY: number }[] = [
+      { url: '/gta/gta_twilight_city.jpg', x: -16, y: 11, z: -15, rotY: 0.35 },
+      { url: '/gta/gta_alen_hero.jpg', x: 16, y: 11, z: -15, rotY: -0.35 },
+      { url: '/gta/gta_ocean_drive.jpg', x: -16, y: 11.5, z: -102, rotY: 0.32 },
+      { url: '/gta/gta_neon_alley.jpg', x: 16, y: 11.5, z: -155, rotY: -0.32 },
+      { url: '/gta/gta_beach_laptop.jpg', x: -16, y: 11.5, z: -210, rotY: 0.32 },
+      { url: '/gta/gta_hq_building.jpg', x: 16, y: 11.5, z: -265, rotY: -0.32 },
+      { url: '/gta/gta_contact_car.jpg', x: 0, y: 12.5, z: -367.5, rotY: 0 }
+    ];
+
+    districtArtBillboards.forEach((art) => {
+      texLoader.load(art.url, (artTex) => {
+        const artGroup = new THREE.Group();
+        artGroup.position.set(art.x, art.y, art.z);
+        artGroup.rotation.y = art.rotY;
+
+        const frame = new THREE.Mesh(
+          new THREE.PlaneGeometry(8.4, 4.8),
+          new THREE.MeshBasicMaterial({ color: '#00f0ff', side: THREE.DoubleSide })
+        );
+        frame.position.z = -0.04;
+        artGroup.add(frame);
+
+        const artPlane = new THREE.Mesh(
+          new THREE.PlaneGeometry(8.1, 4.5),
+          new THREE.MeshBasicMaterial({ map: artTex })
+        );
+        artGroup.add(artPlane);
+
+        scene.add(artGroup);
+      });
+    });
+
     // Background Atmospheric Skyline Silhouette Towers
     const bgBoxGeo = new THREE.BoxGeometry(1, 1, 1);
     for (let i = 0; i < 70; i++) {
@@ -1182,6 +1216,9 @@ export const CinematicCity: React.FC<CinematicCityProps> = ({
     setIsAutoTour(false);
     setIsFreeDrive(true);
     isFreeDriveRef.current = true;
+    if (window.innerWidth < 640) {
+      setIsCardExpanded(false);
+    }
     // Turn headlights on
     headlightsRef.current.forEach((l) => (l.intensity = 35));
     headBeamsRef.current.forEach((b) => ((b.material as THREE.MeshBasicMaterial).opacity = 0.16));
@@ -1430,7 +1467,7 @@ export const CinematicCity: React.FC<CinematicCityProps> = ({
 
             {/* Expandable District Content Body */}
             {isCardExpanded && (
-              <div className="p-3.5 sm:p-5 max-h-[38dvh] sm:max-h-[34dvh] overflow-y-auto space-y-3">
+              <div className="p-3 sm:p-5 max-h-[26dvh] sm:max-h-[34dvh] overflow-y-auto space-y-2.5 sm:space-y-3">
                 {/* Scene 01 & 02 & 03: Intro / Character / Ignition */}
                 {currentSceneIndex <= 2 && (
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
