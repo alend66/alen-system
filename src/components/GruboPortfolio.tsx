@@ -2204,12 +2204,15 @@ export const HackPortfolio: React.FC<HackPortfolioProps> = ({
           </div>
           <div className="contact-links">
             <a href={`mailto:${identity.email}`} className="contact-cta contact-cta-email">
-              <span>{identity.email}</span>
+              <span className="contact-cta-group">
+                <small className="contact-cta-label">EMAIL</small>
+                <span className="contact-cta-url">{identity.email}</span>
+              </span>
               <svg
                 className="contact-cta-arrow"
                 viewBox="0 0 32 32"
-                width="31"
-                height="31"
+                width="18"
+                height="18"
                 fill="none"
                 aria-hidden="true"
                 focusable="false"
@@ -2217,7 +2220,7 @@ export const HackPortfolio: React.FC<HackPortfolioProps> = ({
                 <path
                   d="M7 25L25 7M10 7h15v15"
                   stroke="currentColor"
-                  strokeWidth="2.5"
+                  strokeWidth="2.2"
                   strokeLinecap="square"
                   strokeLinejoin="miter"
                 />
@@ -2229,12 +2232,15 @@ export const HackPortfolio: React.FC<HackPortfolioProps> = ({
               rel="noopener noreferrer"
               className="contact-cta contact-cta-github"
             >
-              <span>{identity.githubUrl.replace('https://', '')}</span>
+              <span className="contact-cta-group">
+                <small className="contact-cta-label">GITHUB</small>
+                <span className="contact-cta-url">{identity.githubUrl}</span>
+              </span>
               <svg
                 className="contact-cta-arrow"
                 viewBox="0 0 32 32"
-                width="31"
-                height="31"
+                width="18"
+                height="18"
                 fill="none"
                 aria-hidden="true"
                 focusable="false"
@@ -2242,7 +2248,7 @@ export const HackPortfolio: React.FC<HackPortfolioProps> = ({
                 <path
                   d="M7 25L25 7M10 7h15v15"
                   stroke="currentColor"
-                  strokeWidth="2.5"
+                  strokeWidth="2.2"
                   strokeLinecap="square"
                   strokeLinejoin="miter"
                 />
