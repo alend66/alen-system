@@ -166,7 +166,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'act-contact',
       title: 'Establish Connection // Contact Alen',
       category: 'CONTACT',
-      meta: 'alend6622@gmail.com • +91 9745775346',
+      meta: 'alend6622@gmail.com • github.com/alend66',
       icon: <Mail className="w-4 h-4 text-emerald-400" />,
       action: () => navigateToSection('#connect', '#contact')
     }
@@ -200,15 +200,15 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[10000] bg-black/80 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 p-4 font-mono">
+    <div className="fixed inset-0 z-[10000] bg-black/80 backdrop-blur-sm flex items-start justify-center pt-4 sm:pt-20 p-2.5 sm:p-4 font-mono">
       {/* Click outside backdrop */}
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-2xl bg-[#090d14] border border-cyan-500/40 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md z-10 animate-fadeIn">
+      <div className="relative w-full max-w-2xl bg-[#0b0a10] border border-white/15 rounded-xl shadow-[0_24px_80px_rgba(0,0,0,0.8)] overflow-hidden backdrop-blur-md z-10 animate-fadeIn">
         
         {/* Search Header */}
-        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-800 bg-[#0c111a]">
-          <Search className="w-5 h-5 text-cyan-400 shrink-0" />
+        <div className="flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-3 sm:py-3.5 border-b border-white/10 bg-[#111018]">
+          <Search className="w-4 h-4 sm:w-5 sm:h-5 text-[#a479f5] shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -218,22 +218,23 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
-            placeholder="SEARCH SYSTEM... (type project, skill, cert, role)"
-            className="flex-1 bg-transparent border-none outline-none text-white text-sm font-mono placeholder:text-slate-500"
+            placeholder="Search projects, skills, sections..."
+            className="flex-1 min-w-0 bg-transparent border-none outline-none text-white text-xs sm:text-sm font-mono placeholder:text-zinc-500"
           />
           <button
             onClick={onClose}
-            className="p-1 rounded hover:bg-slate-800 text-slate-400 hover:text-white"
+            aria-label="Close Search"
+            className="p-1.5 rounded hover:bg-white/10 text-zinc-400 hover:text-white shrink-0"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Results list */}
-        <div className="max-h-[60vh] sm:max-h-96 overflow-y-auto p-2 space-y-1">
+        <div className="max-h-[68svh] sm:max-h-96 overflow-y-auto overscroll-contain p-2 space-y-1">
           {filteredItems.length === 0 ? (
-            <div className="py-8 text-center text-xs text-slate-500">
-              No matching system node found for &quot;{query}&quot;
+            <div className="py-8 text-center text-xs text-zinc-500">
+              No matching node found for &quot;{query}&quot;
             </div>
           ) : (
             filteredItems.map((item, idx) => {
@@ -247,34 +248,34 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
                     item.action();
                   }}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`w-full text-left p-2.5 rounded-lg flex items-center justify-between gap-3 transition-colors ${
+                  className={`w-full text-left p-2 sm:p-2.5 rounded-lg flex items-center justify-between gap-2 sm:gap-3 transition-colors ${
                     isSelected
-                      ? 'bg-cyan-950/80 border border-cyan-500/50 text-white'
-                      : 'hover:bg-slate-900/60 border border-transparent text-slate-300'
+                      ? 'bg-[#4c0aaf]/35 border border-[#8b5cf6]/50 text-white'
+                      : 'hover:bg-white/5 border border-transparent text-zinc-300'
                   }`}
                 >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="p-1.5 rounded bg-slate-900 border border-slate-800 shrink-0">
+                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+                    <div className="p-1.5 rounded bg-white/5 border border-white/10 shrink-0">
                       {item.icon}
                     </div>
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                       <div className="text-xs font-bold truncate">
                         {item.title}
                       </div>
                       {item.meta && (
-                        <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                        <div className="text-[11px] text-zinc-400 truncate mt-0.5">
                           {item.meta}
                         </div>
                       )}
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 shrink-0">
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400 uppercase font-mono">
+                  <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                    <span className="hidden sm:inline-block text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-400 uppercase font-mono">
                       {item.category}
                     </span>
                     {isSelected && (
-                      <CornerDownLeft className="w-3.5 h-3.5 text-cyan-400" />
+                      <CornerDownLeft className="w-3.5 h-3.5 text-[#c3a0ec]" />
                     )}
                   </div>
                 </button>
@@ -284,10 +285,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
         </div>
 
         {/* Footer info */}
-        <div className="bg-[#0c111a] px-4 py-2 border-t border-slate-800 text-[10px] text-slate-500 flex items-center justify-between gap-2">
-          <span className="hidden sm:inline">Navigate with <kbd className="px-1 bg-slate-800 rounded">↑</kbd> <kbd className="px-1 bg-slate-800 rounded">↓</kbd>, <kbd className="px-1 bg-slate-800 rounded">Enter</kbd> to select</span>
-          <span className="sm:hidden">Tap any node to navigate</span>
-          <span><kbd className="px-1 bg-slate-800 rounded">Esc</kbd> to close</span>
+        <div className="bg-[#111018] px-3 sm:px-4 py-2 border-t border-white/10 text-[10px] text-zinc-500 flex items-center justify-between gap-2">
+          <span className="hidden sm:inline">Navigate with <kbd className="px-1 bg-white/10 rounded">↑</kbd> <kbd className="px-1 bg-white/10 rounded">↓</kbd>, <kbd className="px-1 bg-white/10 rounded">Enter</kbd> to select</span>
+          <span className="sm:hidden">Tap any item to jump directly</span>
+          <span><kbd className="px-1 bg-white/10 rounded">Esc</kbd> to close</span>
         </div>
 
       </div>

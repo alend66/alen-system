@@ -121,6 +121,17 @@
   .print-only {
     display: block !important;
   }
+  body.resume-modal-open .site-header,
+  body.resume-modal-open .viewport-ui,
+  body.resume-modal-open .mobile-nav-drawer,
+  body.resume-modal-open #scene,
+  body.resume-modal-open .vignette,
+  body.resume-modal-open .grain,
+  body.resume-modal-open main,
+  body.resume-modal-open .world-screen,
+  body.resume-modal-open .world-close {
+    display: none !important;
+  }
 }
 
 /* Portrait HUD animations */

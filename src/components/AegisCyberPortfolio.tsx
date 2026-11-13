@@ -27,7 +27,6 @@ import {
   MapPin,
   Menu,
   Network,
-  Phone,
   Play,
   Radar,
   RefreshCw,
@@ -1378,11 +1377,11 @@ export const AegisCyberPortfolio: React.FC<AegisCyberPortfolioProps> = ({
             </button>
 
             <a
-              href={`tel:${PORTFOLIO_CONTENT.identity.phone.replace(/\s+/g, '')}`}
+              href={`mailto:${PORTFOLIO_CONTENT.identity.email}`}
               className="px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white font-geist-mono text-xs sm:text-sm flex items-center gap-2 hover:border-cyan-400 transition-colors"
             >
-              <Phone className="w-4 h-4 text-emerald-400" />
-              <span>{PORTFOLIO_CONTENT.identity.phone}</span>
+              <Mail className="w-4 h-4 text-emerald-400" />
+              <span>{PORTFOLIO_CONTENT.identity.email}</span>
             </a>
 
             <a

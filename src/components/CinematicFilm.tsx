@@ -7,7 +7,7 @@ import {
   filmProgressToRawScroll,
   remapScrollWithDwell,
 } from '../data/film';
-import { ExternalLink, FileText, Code2, Mail, Phone, Sparkles, Compass, Terminal as TerminalIcon } from 'lucide-react';
+import { ExternalLink, FileText, Code2, Mail, Sparkles, Compass, Terminal as TerminalIcon } from 'lucide-react';
 
 interface CinematicFilmProps {
   onOpenResume: () => void;
@@ -707,16 +707,8 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({
                   <span>{FILM_PORTFOLIO_DATA.contact.email}</span>
                 </a>
 
-                {/* Frosted-glass pills for Phone, GitHub, and Résumé */}
+                {/* Frosted-glass pills for GitHub and Résumé */}
                 <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-6">
-                  <a
-                    href={`tel:${FILM_PORTFOLIO_DATA.contact.phone.replace(/\s+/g, '')}`}
-                    className="film-frosted-pill px-4 py-2.5 rounded-full font-manrope text-xs sm:text-sm text-[#fff3cf] flex items-center gap-2"
-                  >
-                    <Phone className="w-4 h-4 text-[#f1cf86]" />
-                    <span>{FILM_PORTFOLIO_DATA.contact.phone}</span>
-                  </a>
-
                   <a
                     href={FILM_PORTFOLIO_DATA.contact.github}
                     target="_blank"

@@ -3,7 +3,6 @@ import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { sound } from '../utils/sound';
 import { 
   Mail, 
-  Phone, 
   MapPin, 
   Terminal, 
   Copy, 
@@ -18,7 +17,6 @@ import {
 export const ContactSection: React.FC = () => {
   const { personal } = PORTFOLIO_DATA;
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
   const [senderName, setSenderName] = useState('');
   const [senderEmail, setSenderEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -29,13 +27,6 @@ export const ContactSection: React.FC = () => {
     navigator.clipboard.writeText(personal.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const handleCopyPhone = () => {
-    sound.playKeypress();
-    navigator.clipboard.writeText(personal.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -104,26 +95,23 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Phone Card */}
+          {/* GitHub Profile Card */}
           <div className="p-4 sm:p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
             <div className="flex items-center justify-between">
-              <Phone className="w-5 h-5 text-emerald-400" />
-              <button
-                onClick={handleCopyPhone}
-                className="text-[11px] text-slate-400 hover:text-cyan-300 flex items-center gap-1 bg-slate-800/80 px-2 py-1 rounded"
-                title="Copy phone"
-              >
-                {copiedPhone ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                <span>{copiedPhone ? 'Copied' : 'Copy'}</span>
-              </button>
+              <Terminal className="w-5 h-5 text-emerald-400" />
+              <span className="text-[10px] text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-1.5 py-0.5 rounded">
+                SOURCE CODE
+              </span>
             </div>
             <div>
-              <div className="text-[10px] text-slate-500 uppercase tracking-wider">DIRECT LINE</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">GITHUB PROFILE</div>
               <a
-                href={`tel:${personal.phone}`}
+                href="https://github.com/alend66"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs sm:text-sm font-bold text-white hover:text-emerald-300 transition-colors"
               >
-                {personal.phone}
+                github.com/alend66 ↗
               </a>
             </div>
           </div>

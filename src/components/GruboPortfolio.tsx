@@ -737,9 +737,9 @@ export const HackPortfolio: React.FC<HackPortfolioProps> = ({
         if (pageProg) pageProg.style.width = (smoothScroll * 100).toFixed(2) + '%';
 
         const isPortrait = window.innerWidth < window.innerHeight;
-        const isMobile = window.innerWidth <= 750;
+        const isMobile = window.innerWidth <= 820;
         const zBoost = isPortrait ? 3.5 : window.innerWidth < 1024 ? 1.3 : 0;
-        const mobileYShift = isMobile ? -0.45 : 0;
+        const mobileYShift = isMobile && isPortrait ? -0.45 : 0;
 
         const camY = -gap * progress;
         const camSway = interpolate([0.35, -0.45, 0.42, -0.35], progress);
@@ -1608,7 +1608,7 @@ export const HackPortfolio: React.FC<HackPortfolioProps> = ({
         }
         if (contactSection) {
           const r = contactSection.getBoundingClientRect();
-          document.body.classList.toggle('is-contact', r.top <= 100 && r.bottom > 0);
+          document.body.classList.toggle('is-contact', r.top <= 76 && r.bottom > 76);
         }
       };
 
@@ -2224,10 +2224,12 @@ export const HackPortfolio: React.FC<HackPortfolioProps> = ({
               </svg>
             </a>
             <a
-              href={`tel:${identity.phone.replace(/\s+/g, '')}`}
-              className="contact-cta contact-cta-phone"
+              href={identity.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-cta contact-cta-github"
             >
-              <span>{identity.phone}</span>
+              <span>{identity.githubUrl.replace('https://', '')}</span>
               <svg
                 className="contact-cta-arrow"
                 viewBox="0 0 32 32"

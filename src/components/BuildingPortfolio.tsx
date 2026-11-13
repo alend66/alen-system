@@ -16,7 +16,6 @@ import {
   GraduationCap,
   Mail,
   MapPin,
-  Phone,
   ShieldAlert,
   Sparkles,
   Terminal as TerminalIcon,
@@ -107,7 +106,7 @@ export const WALK_STATIONS: WalkStation[] = [
     roomCode: 'DOOR 05 // DIRECT CONTACT & RÉSUMÉ',
     title: 'EXECUTIVE WORKSTATION & CONTACT',
     subtitle:
-      'Alen arrives at his Executive Sky Office overlooking Infopark Kochi. Connect directly via Email, Phone, GitHub, or download his Résumé PDF.',
+      'Alen arrives at his Executive Sky Office overlooking Infopark Kochi. Connect directly via Email or GitHub, or download his Résumé PDF.',
     range: [0.87, 1.0],
     targetZ: -107,
     accentColor: '#ec4899',
@@ -1418,14 +1417,6 @@ export const BuildingPortfolio: React.FC<BuildingPortfolioProps> = ({
                       >
                         <Mail className="w-4 h-4 text-pink-400 shrink-0" />
                         <span className="truncate">{FILM_PORTFOLIO_DATA.contact.email}</span>
-                      </a>
-
-                      <a
-                        href={`tel:${FILM_PORTFOLIO_DATA.contact.phone.replace(/\s+/g, '')}`}
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-100 font-mono text-xs flex items-center gap-2 hover:border-pink-500/50 transition-all"
-                      >
-                        <Phone className="w-4 h-4 text-pink-400 shrink-0" />
-                        <span>{FILM_PORTFOLIO_DATA.contact.phone}</span>
                       </a>
 
                       <a

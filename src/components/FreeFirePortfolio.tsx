@@ -12,7 +12,6 @@ import {
   Mail,
   MapPin,
   Medal,
-  Phone,
   Shield,
   Skull,
   Target,
@@ -987,11 +986,6 @@ export const FreeFirePortfolio: React.FC<FreeFirePortfolioProps> = ({
                 <a className="ff-btn ff-btn-ghost" href={`mailto:${identity.email}`}>
                   <span className="flex items-center gap-2">
                     <Mail className="w-5 h-5" /> EMAIL
-                  </span>
-                </a>
-                <a className="ff-btn ff-btn-ghost" href={`tel:${identity.phone.replace(/\s/g, '')}`}>
-                  <span className="flex items-center gap-2">
-                    <Phone className="w-5 h-5" /> {identity.phone}
                   </span>
                 </a>
                 <a className="ff-btn ff-btn-ghost" href={identity.githubUrl} target="_blank" rel="noreferrer">

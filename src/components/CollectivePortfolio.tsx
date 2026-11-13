@@ -1345,7 +1345,7 @@ export const CollectivePortfolio: React.FC<CollectivePortfolioProps> = ({
                   {PORTFOLIO_CONTENT.identity.fullName}
                 </h3>
                 <p className="font-geist-mono text-xs text-[#777777] mt-1">
-                  {PORTFOLIO_CONTENT.identity.location} · {PORTFOLIO_CONTENT.identity.phone}
+                  {PORTFOLIO_CONTENT.identity.location}
                 </p>
               </div>
 
@@ -1377,7 +1377,7 @@ export const CollectivePortfolio: React.FC<CollectivePortfolioProps> = ({
                 </button>
               </div>
 
-              {/* GitHub, Phone & Resume Links */}
+              {/* GitHub & Resume Links */}
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                 <a
                   href={PORTFOLIO_CONTENT.identity.githubUrl}
@@ -1387,13 +1387,6 @@ export const CollectivePortfolio: React.FC<CollectivePortfolioProps> = ({
                 >
                   <span>GitHub</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-
-                <a
-                  href={`tel:${PORTFOLIO_CONTENT.identity.phone.replace(/\s+/g, '')}`}
-                  className="px-4 py-2 rounded-full bg-[#FAFAF8] border border-[#E8E7E2] text-xs font-geist-mono text-[#151515] hover:border-[#151515]"
-                >
-                  {PORTFOLIO_CONTENT.identity.phone}
                 </a>
 
                 <a

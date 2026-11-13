@@ -1586,7 +1586,7 @@ export const LanternRiverPortfolio: React.FC<LanternRiverPortfolioProps> = ({
                 <p className="lr-addr">
                   <b>{identity.location}</b>
                   <br />
-                  {identity.email} · {identity.phone}
+                  {identity.email}
                 </p>
                 <button className="lr-btn warm" type="submit">
                   Release lantern

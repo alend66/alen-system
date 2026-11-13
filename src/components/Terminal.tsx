@@ -299,7 +299,6 @@ export const Terminal: React.FC<TerminalProps> = ({ onOpenResume, onReboot }) =>
             </div>
             <div className="p-2.5 rounded bg-slate-900/80 border border-slate-800 space-y-1.5 text-xs">
               <div><span className="text-slate-500">Email:</span> <a href={`mailto:${PORTFOLIO_DATA.personal.email}`} className="text-cyan-300 hover:underline">{PORTFOLIO_DATA.personal.email}</a></div>
-              <div><span className="text-slate-500">Phone:</span> <span className="text-emerald-400">{PORTFOLIO_DATA.personal.phone}</span></div>
               <div><span className="text-slate-500">Location:</span> <span className="text-slate-300">{PORTFOLIO_DATA.personal.location}</span></div>
             </div>
           </div>

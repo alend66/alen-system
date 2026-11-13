@@ -25,7 +25,6 @@ import {
   Cpu,
   Layers,
   Mail,
-  Phone,
   MapPin,
   ExternalLink,
   Car,
@@ -979,7 +978,7 @@ export const CinematicCity: React.FC<CinematicCityProps> = ({
       -348,
       'SCENE 09 // DESTINATION GARAGE',
       'CONTACT ALEN DAVIS K',
-      'alend6622@gmail.com • +91 9745775346 • THRISSUR, KERALA',
+      'alend6622@gmail.com • github.com/alend66 • THRISSUR, KERALA',
       '#00ff9d'
     );
 
@@ -992,7 +991,7 @@ export const CinematicCity: React.FC<CinematicCityProps> = ({
       rotY: 0,
       badge: 'COMMAND GARAGE // OPEN TO OPPORTUNITIES',
       title: 'HIRE LINUX SYSTEM ENGINEER',
-      subtitle: 'alend6622@gmail.com | +91 9745775346',
+      subtitle: 'alend6622@gmail.com | Thrissur, Kerala',
       lines: [
         'GitHub: github.com/alend66/alen-system',
         'Location: Thrissur, Kerala, India',
@@ -1666,17 +1665,6 @@ export const CinematicCity: React.FC<CinematicCityProps> = ({
                       <div className="min-w-0">
                         <div className="text-[10px] text-slate-400">EMAIL ALEN</div>
                         <div className="text-xs font-bold text-white truncate">{personal.email}</div>
-                      </div>
-                    </a>
-
-                    <a
-                      href={`tel:${personal.phone}`}
-                      className="p-3 rounded-xl bg-slate-900/90 hover:bg-emerald-950/60 border border-emerald-500/40 flex items-center gap-2.5 transition-all"
-                    >
-                      <Phone className="w-5 h-5 text-emerald-400 shrink-0" />
-                      <div className="min-w-0">
-                        <div className="text-[10px] text-slate-400">DIRECT PHONE</div>
-                        <div className="text-xs font-bold text-white truncate">{personal.phone}</div>
                       </div>
                     </a>
 
