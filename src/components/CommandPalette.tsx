@@ -43,6 +43,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
     }
   }, [isOpen]);
 
+  const navigateToSection = (primaryHash: string, fallbackHash: string) => {
+    const target = document.querySelector(primaryHash) || document.querySelector(fallbackHash);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.hash = primaryHash;
+    }
+    onClose();
+  };
+
   const searchItems: SearchItem[] = [
     // Projects
     {
@@ -51,10 +61,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'PROJECT',
       meta: 'Python + Shell • MD5 Hashing',
       icon: <FileText className="w-4 h-4 text-emerald-400" />,
-      action: () => {
-        window.location.hash = '#projects';
-        onClose();
-      }
+      action: () => navigateToSection('#projects', '#insights')
     },
     {
       id: 'proj-rfid',
@@ -62,10 +69,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'PROJECT',
       meta: 'ESP32 + RFID • Microcontroller Access',
       icon: <Shield className="w-4 h-4 text-cyan-400" />,
-      action: () => {
-        window.location.hash = '#projects';
-        onClose();
-      }
+      action: () => navigateToSection('#projects', '#insights')
     },
     {
       id: 'proj-splunk',
@@ -73,34 +77,25 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'PROJECT',
       meta: 'Splunk + Linux • Universal Forwarder',
       icon: <Terminal className="w-4 h-4 text-amber-400" />,
-      action: () => {
-        window.location.hash = '#projects';
-        onClose();
-      }
+      action: () => navigateToSection('#projects', '#insights')
     },
 
     // Navigation & Capabilities
     {
       id: 'nav-term',
-      title: 'Interactive Unix Terminal ($)',
-      category: 'TERMINAL',
-      meta: 'Execute live portfolio commands',
+      title: 'Interactive 3D Security Domains / Terminal',
+      category: 'DOMAIN',
+      meta: 'Explore HACK 3D chapters or live console',
       icon: <Terminal className="w-4 h-4 text-emerald-400" />,
-      action: () => {
-        window.location.hash = '#terminal';
-        onClose();
-      }
+      action: () => navigateToSection('#terminal', '#work')
     },
     {
       id: 'nav-map',
-      title: 'Infrastructure Network Topology Map',
-      category: 'NETWORK',
-      meta: 'Inspect 8 core engineering nodes',
+      title: 'Infrastructure & Capabilities Matrix',
+      category: 'CAPABILITIES',
+      meta: 'Inspect core security engineering nodes',
       icon: <Cpu className="w-4 h-4 text-cyan-400" />,
-      action: () => {
-        window.location.hash = '#network-map';
-        onClose();
-      }
+      action: () => navigateToSection('#network-map', '#about')
     },
     {
       id: 'nav-mindset',
@@ -108,10 +103,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'MINDSET',
       meta: 'OBSERVE → IDENTIFY → ISOLATE → TEST → FIX → VERIFY',
       icon: <Terminal className="w-4 h-4 text-purple-400" />,
-      action: () => {
-        window.location.hash = '#how-i-think';
-        onClose();
-      }
+      action: () => navigateToSection('#how-i-think', '#about')
     },
     {
       id: 'nav-diag',
@@ -119,10 +111,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'SYSTEM',
       meta: 'Simulated candidate profile evaluation',
       icon: <Cpu className="w-4 h-4 text-emerald-400" />,
-      action: () => {
-        window.location.hash = '#diagnostics';
-        onClose();
-      }
+      action: () => navigateToSection('#diagnostics', '#about')
     },
 
     // Experience
@@ -132,10 +121,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'EXPERIENCE',
       meta: 'CCTV, DVR/NVR, router config, IP subnets',
       icon: <Briefcase className="w-4 h-4 text-blue-400" />,
-      action: () => {
-        window.location.hash = '#experience';
-        onClose();
-      }
+      action: () => navigateToSection('#experience', '#team')
     },
     {
       id: 'exp-police',
@@ -143,10 +129,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'EXPERIENCE',
       meta: 'Cybercrime investigation, forensics evidence',
       icon: <Shield className="w-4 h-4 text-red-400" />,
-      action: () => {
-        window.location.hash = '#experience';
-        onClose();
-      }
+      action: () => navigateToSection('#experience', '#team')
     },
 
     // Education & Certs
@@ -156,10 +139,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'EDUCATION',
       meta: 'Computer Science degree foundation',
       icon: <GraduationCap className="w-4 h-4 text-cyan-400" />,
-      action: () => {
-        window.location.hash = '#credentials';
-        onClose();
-      }
+      action: () => navigateToSection('#credentials', '#team')
     },
     {
       id: 'edu-adcd',
@@ -167,10 +147,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'CREDENTIAL',
       meta: 'Red Team Hackers Academy, June 2026',
       icon: <Shield className="w-4 h-4 text-emerald-400" />,
-      action: () => {
-        window.location.hash = '#credentials';
-        onClose();
-      }
+      action: () => navigateToSection('#credentials', '#team')
     },
 
     // Direct Actions
@@ -191,10 +168,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       category: 'CONTACT',
       meta: 'alend6622@gmail.com • +91 9745775346',
       icon: <Mail className="w-4 h-4 text-emerald-400" />,
-      action: () => {
-        window.location.hash = '#connect';
-        onClose();
-      }
+      action: () => navigateToSection('#connect', '#contact')
     }
   ];
 
@@ -226,7 +200,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 p-4 font-mono">
+    <div className="fixed inset-0 z-[10000] bg-black/80 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 p-4 font-mono">
       {/* Click outside backdrop */}
       <div className="fixed inset-0" onClick={onClose} />
 
@@ -256,7 +230,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
         </div>
 
         {/* Results list */}
-        <div className="max-h-96 overflow-y-auto p-2 space-y-1">
+        <div className="max-h-[60vh] sm:max-h-96 overflow-y-auto p-2 space-y-1">
           {filteredItems.length === 0 ? (
             <div className="py-8 text-center text-xs text-slate-500">
               No matching system node found for &quot;{query}&quot;

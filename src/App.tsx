@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { AegisCyberPortfolio } from './components/AegisCyberPortfolio';
+import { FreeFirePortfolio } from './components/FreeFirePortfolio';
+import { LanternRiverPortfolio } from './components/LanternRiverPortfolio';
+import { HackPortfolio } from './components/GruboPortfolio';
 import { CommandPalette } from './components/CommandPalette';
 import { ResumeModal } from './components/ResumeModal';
 
@@ -19,9 +22,20 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // HACK style is the default. Optional ?theme=lantern, ?theme=freefire, or ?theme=aegis
+  const theme = new URLSearchParams(window.location.search).get('theme');
+  const Portfolio =
+    theme === 'aegis'
+      ? AegisCyberPortfolio
+      : theme === 'freefire'
+      ? FreeFirePortfolio
+      : theme === 'lantern'
+      ? LanternRiverPortfolio
+      : HackPortfolio;
+
   return (
-    <div className="min-h-screen bg-[#050811] text-slate-100 relative overflow-x-clip">
-      <AegisCyberPortfolio
+    <>
+      <Portfolio
         onOpenResume={() => setIsResumeModalOpen(true)}
         onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
       />
@@ -37,7 +51,7 @@ export const App: React.FC = () => {
         isOpen={isResumeModalOpen}
         onClose={() => setIsResumeModalOpen(false)}
       />
-    </div>
+    </>
   );
 };
 
