@@ -561,16 +561,17 @@ body.world-active .world-screen{opacity:1;}
 }
 
 
-/* Footer: compact, modern Geist/Inter studio hyperlinks for Email and GitHub */
+/* Footer: compact, modern Geist/Inter studio hyperlinks for Email and GitHub on dark canvas */
 #contact .contact-links{margin:40px 0 52px;max-width:760px;}
-#contact .contact-links .contact-cta{margin:0;min-width:0;color:#090909;text-decoration:none;border-top:1px solid rgba(9,9,9,0.22);border-bottom:0;font-family:'Geist','Inter',system-ui,-apple-system,sans-serif;font-weight:700;gap:16px;}
-#contact .contact-links .contact-cta:last-child{border-bottom:1px solid rgba(9,9,9,0.22);}
-#contact .contact-links .contact-cta:hover,#contact .contact-links .contact-cta:focus-visible{color:var(--accent);}
+#contact .contact-links .contact-cta{margin:0;min-width:0;color:#f5f3fa;text-decoration:none;border-top:1px solid rgba(255,255,255,0.14);border-bottom:0;font-family:'Geist','Inter',system-ui,-apple-system,sans-serif;font-weight:700;gap:16px;}
+#contact .contact-links .contact-cta:last-child{border-bottom:1px solid rgba(255,255,255,0.14);}
+#contact .contact-links .contact-cta:hover,#contact .contact-links .contact-cta:focus-visible{color:#c4b5fd;}
 #contact .contact-links .contact-cta-group{display:flex;align-items:baseline;gap:20px;min-width:0;flex-wrap:wrap;}
-#contact .contact-links .contact-cta-label{font-family:'JetBrains Mono','Geist Mono',ui-monospace,monospace;font-size:10px;font-weight:600;letter-spacing:0.16em;color:#4c0aaf;min-width:58px;flex-shrink:0;}
-#contact .contact-links .contact-cta-url{font-family:'Geist','Inter',system-ui,-apple-system,sans-serif;font-size:inherit;font-weight:700;letter-spacing:-0.025em;line-height:1.35;min-width:0;overflow-wrap:anywhere;text-decoration:none;border-bottom:1.5px solid rgba(9,9,9,0.22);padding-bottom:2px;color:#090909;transition:color .2s,border-color .2s;}
-#contact .contact-links .contact-cta:hover .contact-cta-url,#contact .contact-links .contact-cta:focus-visible .contact-cta-url{color:var(--accent);border-bottom-color:var(--accent);}
-#contact .contact-links .contact-cta .contact-cta-arrow{width:18px;height:18px;}
+#contact .contact-links .contact-cta-label{font-family:'JetBrains Mono','Geist Mono',ui-monospace,monospace;font-size:10px;font-weight:600;letter-spacing:0.16em;color:#a78bfa;min-width:58px;flex-shrink:0;}
+#contact .contact-links .contact-cta-url{font-family:'Geist','Inter',system-ui,-apple-system,sans-serif;font-size:inherit;font-weight:700;letter-spacing:-0.025em;line-height:1.35;min-width:0;overflow-wrap:anywhere;text-decoration:none;border-bottom:1.5px solid rgba(167,139,250,0.38);padding-bottom:2px;color:#ffffff;transition:color .2s,border-color .2s;}
+#contact .contact-links .contact-cta:hover .contact-cta-url,#contact .contact-links .contact-cta:focus-visible .contact-cta-url{color:#c4b5fd;border-bottom-color:#8b5cf6;}
+#contact .contact-links .contact-cta .contact-cta-arrow{width:18px;height:18px;color:#a78bfa;}
+#contact .contact-links .contact-cta:hover .contact-cta-arrow{color:#c4b5fd;}
 @media(max-width:750px){#contact .contact-links{margin:28px 0 36px;}#contact .contact-links .contact-cta{padding:14px 0;}}
 
 
@@ -1528,10 +1529,32 @@ html {
 }
 
 body.is-contact .site-header:not(.has-open-menu) {
-  background: rgba(245, 244, 240, 0.94);
+  background: rgba(6, 5, 10, 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(9, 9, 9, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.is-contact .site-header:not(.has-open-menu) .brand-hack-svg,
+body.is-contact .site-header:not(.has-open-menu) nav > a,
+body.is-contact .site-header:not(.has-open-menu) nav > .nav-action-btn {
+  color: #ffffff;
+}
+
+body.is-contact .site-header:not(.has-open-menu) .manifest {
+  color: #d1d1d1;
+}
+
+body.is-contact .site-header:not(.has-open-menu) nav > a.contact-nav {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+body.is-contact .site-header:not(.has-open-menu) .lang-toggle,
+body.is-contact .site-header:not(.has-open-menu) .nav-menu-toggle {
+  background: rgba(8, 8, 8, 0.8);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.42);
 }
 
 .site-header.has-open-menu {
@@ -1656,13 +1679,16 @@ body.is-contact .site-header:not(.has-open-menu) {
   }
 }
 
-/* #contact: generous top clearance so header bar never crashes over LET'S LOCK IT DOWN. */
+/* #contact: unified dark obsidian aesthetic matching the edited site + crisp header clearance */
 .contact {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: clamp(120px, 14vh, 168px) 6.5vw 36px;
+  background: radial-gradient(ellipse at 24% 30%, #140829 0%, #07060b 52%, #050507 100%);
+  color: #ffffff;
+  border-top: 1px solid rgba(195, 160, 236, 0.16);
 }
 
 .contact-heading {
@@ -1670,6 +1696,26 @@ body.is-contact .site-header:not(.has-open-menu) {
   letter-spacing: -0.045em;
   line-height: 0.96;
   margin: 0;
+  color: #ffffff;
+}
+
+.contact-heading em {
+  color: #7c3aed;
+}
+
+.contact-bottom {
+  color: #a1a1aa;
+}
+
+.contact-bottom a {
+  color: #e4e4e7;
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.contact-bottom a:hover {
+  color: #c4b5fd;
+  border-bottom-color: #8b5cf6;
 }
 
 #contact .contact-links {
@@ -1987,7 +2033,10 @@ body.is-contact .site-header:not(.has-open-menu) {
   }
 }
 
-body.is-contact .site-header:not(.has-open-menu) nav > a.contact-nav:hover {
+body.is-contact .site-header:not(.has-open-menu) nav > a.contact-nav:hover,
+body.is-contact .site-header:not(.has-open-menu) nav > .nav-action-btn:hover,
+body.is-contact .site-header:not(.has-open-menu) .lang-toggle:hover,
+body.is-contact .site-header:not(.has-open-menu) .nav-menu-toggle:hover {
   background: var(--accent, #4c0aaf);
   border-color: var(--accent, #4c0aaf);
   color: #fff;
