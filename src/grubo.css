@@ -561,15 +561,15 @@ body.world-active .world-screen{opacity:1;}
 }
 
 
-/* Footer: compact, refined editorial hyperlinks for Email and GitHub */
+/* Footer: compact, modern Geist/Inter studio hyperlinks for Email and GitHub */
 #contact .contact-links{margin:40px 0 52px;max-width:760px;}
-#contact .contact-links .contact-cta{margin:0;min-width:0;color:#090909;text-decoration:none;border-top:1px solid rgba(9,9,9,0.22);border-bottom:0;font-family:Arial,Helvetica,sans-serif;font-weight:600;gap:16px;}
+#contact .contact-links .contact-cta{margin:0;min-width:0;color:#090909;text-decoration:none;border-top:1px solid rgba(9,9,9,0.22);border-bottom:0;font-family:'Geist','Inter',system-ui,-apple-system,sans-serif;font-weight:700;gap:16px;}
 #contact .contact-links .contact-cta:last-child{border-bottom:1px solid rgba(9,9,9,0.22);}
 #contact .contact-links .contact-cta:hover,#contact .contact-links .contact-cta:focus-visible{color:var(--accent);}
 #contact .contact-links .contact-cta-group{display:flex;align-items:baseline;gap:20px;min-width:0;flex-wrap:wrap;}
-#contact .contact-links .contact-cta-label{font-size:10px;font-weight:700;letter-spacing:0.16em;color:#5b5963;min-width:58px;flex-shrink:0;}
-#contact .contact-links .contact-cta-url{font-family:inherit;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:1.35;min-width:0;overflow-wrap:anywhere;text-decoration:underline;text-decoration-color:rgba(76,10,175,0.45);text-decoration-thickness:1.5px;text-underline-offset:4px;color:#090909;transition:color .2s,text-decoration-color .2s;}
-#contact .contact-links .contact-cta:hover .contact-cta-url,#contact .contact-links .contact-cta:focus-visible .contact-cta-url{color:var(--accent);text-decoration-color:var(--accent);}
+#contact .contact-links .contact-cta-label{font-family:'JetBrains Mono','Geist Mono',ui-monospace,monospace;font-size:10px;font-weight:600;letter-spacing:0.16em;color:#4c0aaf;min-width:58px;flex-shrink:0;}
+#contact .contact-links .contact-cta-url{font-family:'Geist','Inter',system-ui,-apple-system,sans-serif;font-size:inherit;font-weight:700;letter-spacing:-0.025em;line-height:1.35;min-width:0;overflow-wrap:anywhere;text-decoration:none;border-bottom:1.5px solid rgba(9,9,9,0.22);padding-bottom:2px;color:#090909;transition:color .2s,border-color .2s;}
+#contact .contact-links .contact-cta:hover .contact-cta-url,#contact .contact-links .contact-cta:focus-visible .contact-cta-url{color:var(--accent);border-bottom-color:var(--accent);}
 #contact .contact-links .contact-cta .contact-cta-arrow{width:18px;height:18px;}
 @media(max-width:750px){#contact .contact-links{margin:28px 0 36px;}#contact .contact-links .contact-cta{padding:14px 0;}}
 
@@ -1677,9 +1677,9 @@ body.is-contact .site-header:not(.has-open-menu) {
 }
 
 #contact .contact-links .contact-cta {
-  padding: 15px 0;
-  font-size: clamp(15px, 1.35vw, 20px);
-  letter-spacing: -0.01em;
+  padding: 16px 0;
+  font-size: clamp(17px, 1.55vw, 23px);
+  letter-spacing: -0.025em;
 }
 
 /* Tablet & compact laptop breakpoint (<= 960px): prevent header crowding and balance columns */
@@ -1951,8 +1951,8 @@ body.is-contact .site-header:not(.has-open-menu) {
 
   #contact .contact-links .contact-cta {
     padding: 14px 0;
-    font-size: clamp(14px, 3.8vw, 17px);
-    letter-spacing: -0.01em;
+    font-size: clamp(15px, 4.1vw, 18px);
+    letter-spacing: -0.02em;
     gap: 12px;
   }
 
